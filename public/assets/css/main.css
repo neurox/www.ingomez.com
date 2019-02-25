@@ -4244,6 +4244,31 @@ readers do not read off random characters that represent icons */
 .fab {
   font-family: 'Font Awesome 5 Brands'; }
 
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: auto;
+  src: url("/assets/webfonts/fa-solid-900.eot");
+  src: url("/assets/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/assets/webfonts/fa-solid-900.woff2") format("woff2"), url("/assets/webfonts/fa-solid-900.woff") format("woff"), url("/assets/webfonts/fa-solid-900.ttf") format("truetype"), url("/assets/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
+
+.fa,
+.fas {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900; }
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("/assets/webfonts/fa-regular-400.eot");
+  src: url("/assets/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("/assets/webfonts/fa-regular-400.woff2") format("woff2"), url("/assets/webfonts/fa-regular-400.woff") format("woff"), url("/assets/webfonts/fa-regular-400.ttf") format("truetype"), url("/assets/webfonts/fa-regular-400.svg#fontawesome") format("svg"); }
+
+.far {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400; }
+
 /*
 	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
@@ -5758,16 +5783,8 @@ input[type="radio"] + label:before {
 
 /* Icon */
 .icon {
-  text-decoration: none;
   border-bottom: none;
   position: relative; }
-  .icon:before {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-transform: none !important; }
   .icon > .label {
     display: none; }
   .icon.major {
