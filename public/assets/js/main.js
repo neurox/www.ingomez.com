@@ -187,4 +187,42 @@
 				}
 			});
 
+	$("#commentForm").validate({
+		submitHandler: function(form) {
+
+			$.ajax({
+				data:  $(form).serialize(), //datos que se envian a traves de ajax
+				url:   '/send_mail.php', //archivo que recibe la peticion
+				type:  'POST', //método de envio
+				beforeSend: function () {
+
+				},
+				success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+
+					if(response) {
+
+						Swal.fire(
+							'Mensaje enviado!',
+							'Te contestare a la brevedad',
+							'success'
+						)
+
+						$("#commentForm")[0].reset();
+
+					} else {
+
+						Swal.fire(
+							'Error!',
+							'Hubo un problema, contacta al webmaster',
+							'error'
+						)
+
+					}
+				}
+			});
+
+		}
+	});
+
 })(jQuery);
+

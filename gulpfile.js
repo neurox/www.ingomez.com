@@ -34,7 +34,8 @@ gulp.task('javascript', function() {
         'public/assets/js/browser.min.js',
         'public/assets/js/breakpoints.min.js',
         'public/assets/js/util.js',
-        'public/assets/js/validate.min.js',
+        'public/assets/js/jquery.validate.min.js',
+        'public/assets/js/sweetalert2@8.js',
         'public/assets/js/main.js'
     ])
         .pipe(sourcemaps.init())
@@ -54,6 +55,13 @@ gulp.task('watch', function () {
         }
     });
 
+    gulp.watch('public/assets/js/main.js').on('change', gulp.series('javascript', browserSync.reload));
     gulp.watch('public/assets/sass/**/*.scss').on('change', gulp.series('sass', browserSync.reload));
     gulp.watch('public/*.html').on('change', gulp.series(browserSync.reload));
+});
+
+gulp.task('just-watch', function() {
+
+    gulp.watch('public/assets/js/main.js').on('change', gulp.series('javascript'));
+    gulp.watch('public/assets/sass/**/*.scss').on('change', gulp.series('sass'));
 });

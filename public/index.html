@@ -215,23 +215,23 @@
 								de eso proponerle una solución.</p>
 							<div class="split style1">
 								<section>
-									<form method="post" action="#">
+									<form id="commentForm">
 										<div class="fields">
 											<div class="field half">
 												<label for="name">Nombre</label>
-												<input type="text" name="name" id="name" disabled/>
+												<input type="text" name="name" id="name" data-msg="Debes proporcionar un nombre." required/>
 											</div>
 											<div class="field half">
 												<label for="email">Email</label>
-												<input type="text" name="email" id="email" disabled/>
+												<input type="email" name="email" data-parsley-type="email" data-msg="Debe ser un eMail valido." required/>
 											</div>
 											<div class="field">
 												<label for="message">Mensaje</label>
-												<textarea name="message" id="message" rows="5" disabled></textarea>
+												<textarea name="message" id="message" rows="5" data-msg="Escribe tu mensaje." required></textarea>
 											</div>
 										</div>
 										<ul class="actions">
-											<li><a href="" class="button submit disabled">Enviar Mensaje</a></li>
+											<li><input class="button" type="submit" value="Enviar Mensaje"></li>
 										</ul>
 									</form>
 								</section>

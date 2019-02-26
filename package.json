@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "jquery-form-validator": "^2.3.79"
+  },
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "gulp": "^4.0.0",
