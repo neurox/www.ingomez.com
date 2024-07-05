@@ -1,0 +1,6 @@
+baseURL = 'https://www.ingomez.com/'
+languageCode = 'en-us'
+title = 'INGOMEZ'
+
+theme = 'hugo-bootstrap-theme'
+themesdir = 'node_modules/@filipecarneiro'
