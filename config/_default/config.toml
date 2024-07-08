@@ -1,0 +1,13 @@
+baseURL = 'https://www.ingomez.com/'
+languageCode = 'en-us'
+title = 'INGOMEZ'
+author = 'Juan Gómez'
+copyright = '''
+    INGOMEZ created by <a class=\"text-muted text-decoration-none\"
+    href="https://www.juaning.dev" target="_blank">Juan Gómez</a>.
+    '''
+
+timeZone = 'America/Mexico_City'
+
+theme = 'hugo-bootstrap-theme'
+themesdir = 'node_modules/@filipecarneiro'
