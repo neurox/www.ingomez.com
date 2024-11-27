@@ -1,5 +1,6 @@
 {
   "devDependencies": {
-    "@filipecarneiro/hugo-bootstrap-theme": "^1.0.38"
+    "@filipecarneiro/hugo-bootstrap-theme": "^1.0.38",
+    "hugo-installer": "^4.0.1"
   }
 }

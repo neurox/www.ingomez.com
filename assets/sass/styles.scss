@@ -1,0 +1,53 @@
+.hero{
+  min-height: 350px;
+  color: rgba($color: #efefef, $alpha: 1.0);
+
+  picture{
+    width: 101vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    img{
+      width: 101vw;
+    }
+
+    &::before{
+      position: absolute;
+      content: '';
+      background-color: rgba($color: #000000, $alpha: 0.60);
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .info{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero{
+    min-height: 550px;
+
+    picture{
+      img{
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .hero{
+    min-height: 700px;
+
+    picture{
+      img{
+      }
+    }
+  }
+}

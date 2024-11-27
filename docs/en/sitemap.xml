@@ -2,44 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://www.ingomez.com/authors/</loc>
+  </url><url>
+    <loc>https://www.ingomez.com/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es-MX"
-                href="http://localhost:1313/es/categories/"
+                href="https://www.ingomez.com/es/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/categories/"
+                href="https://www.ingomez.com/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/page/</loc>
+    <loc>https://www.ingomez.com/page/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/index/</loc>
+    <loc>https://www.ingomez.com/tags/index/</loc>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://www.ingomez.com/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es-MX"
-                href="http://localhost:1313/es/"
+                href="https://www.ingomez.com/es/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/"
+                href="https://www.ingomez.com/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://www.ingomez.com/authors/juan-gomez/</loc>
+  </url><url>
+    <loc>https://www.ingomez.com/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es-MX"
-                href="http://localhost:1313/es/tags/"
+                href="https://www.ingomez.com/es/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/tags/"
+                href="https://www.ingomez.com/tags/"
                 />
   </url>
 </urlset>
