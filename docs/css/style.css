@@ -12329,6 +12329,7 @@ a .feather-github:hover {
 
 .hero picture {
   width: 101vw;
+  min-height: 350px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -12358,10 +12359,16 @@ a .feather-github:hover {
   .hero {
     min-height: 550px;
   }
+  .hero picture {
+    min-height: 550px;
+  }
 }
 
 @media screen and (min-width: 1920px) {
   .hero {
+    min-height: 700px;
+  }
+  .hero picture {
     min-height: 700px;
   }
 }
