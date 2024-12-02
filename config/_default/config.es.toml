@@ -1,0 +1,6 @@
+baseURL = 'https://www.ingomez.com/es/'
+languageCode = 'es-MX'
+copyright = '''
+    INGOMEZ creado por <a class=\"text-muted text-decoration-none\"
+    href="https://www.juaning.dev" target="_blank">Juan Gómez</a>.
+    '''

@@ -1,18 +1,30 @@
 {{ define "main" }}
 
 <section class="section bd-masthead">
-  <div class="container-xxl">
-    <div class="col-md-8 mx-auto text-center my-5">
-      <img class="d-block mx-auto mb-3" src="{{ `images/logo.svg` | relURL }}" width="150" height="150" alt="Bootstrap">
-      <h1 class="display-4 fw-semibold mb-3">{{ .Site.Title }}</h1>
-      <p class="lead mb-4">{{ .Site.Params.Description }}</p>
-      <a class="btn btn-bd-primary btn-lg px-4 mb-2" href="https://github.com/filipecarneiro/hugo-bootstrap-theme" role="button">Get Started</a>
-      <p class="text-muted mb-0">Open-source MIT Licensed.</p>
+  <div class="hero position-relative overflow-hidden p-0 m-0 text-center bg-dark">
+    <picture class="position-absolute">
+      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1920/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        media="(min-width: 1400px)" type="image/svg+xml">
+      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1399/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        media="(min-width: 1200px)" type="image/svg+xml">
+      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1199/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        media="(min-width: 992px)" type="image/svg+xml">
+      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_991/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        media="(min-width: 768px)" type="image/svg+xml">
+      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_767/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        media="(min-width: 576px)" type="image/svg+xml">
+      <img src="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_575/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        width="767" height="auto" alt="..." loading="lazy" decoding="async">
+    </picture>
+    <div class="info position-absolute">
+      <h1 class="title display-4 fw-normal">Soluciones Innovadoras,<br>Adaptadas a Tus Necesidades</h1>
+      <p class="description lead fw-normal">Desarrollo web dirigido por expertos, diseñado para resolver tus retos más difíciles.</p>
+      <a class="cta btn btn-light btn-lg" href="#">Get Your Estimate</a>
     </div>
   </div>
 </section>
 
-<section class="section container my-3">
+<!-- <section class="section container my-3">
   {{ partial "features" . }}
 </section>
 
@@ -24,6 +36,6 @@
 <section class="section container my-3">
   <h3 class="text-secondary text-center my-5">Featured Pages</h3>
   {{ partial "featured-pages" . }}
-</section>
+</section> -->
 
 {{ end }}

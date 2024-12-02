@@ -12322,27 +12322,37 @@ a .feather-github:hover {
   fill: #000;
 }
 
+a {
+  color: #003db8;
+}
+
 .hero {
   min-height: 350px;
-  color: #efefef;
+  color: #f9f9f9;
 }
 
 .hero picture {
   width: 101vw;
-  min-height: 350px;
+  min-height: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .hero picture img {
-  width: 101vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 767px;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
 }
 
 .hero picture::before {
   position: absolute;
+  z-index: 1;
   content: '';
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(11, 11, 11, 0.7);
   left: 0;
   top: 0;
   width: 100%;
@@ -12355,12 +12365,27 @@ a .feather-github:hover {
   transform: translate(-50%, -50%);
 }
 
+@media screen and (min-width: 768px) {
+  .hero {
+    min-height: 450px;
+  }
+  .hero picture {
+    min-height: 450px;
+  }
+  .hero picture img {
+    width: 101vw;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .hero {
     min-height: 550px;
   }
   .hero picture {
     min-height: 550px;
+  }
+  .hero picture img {
+    width: 101vw;
   }
 }
 

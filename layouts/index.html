@@ -1,20 +1,30 @@
 {{ define "main" }}
 
 <section class="section bd-masthead">
-  <div class="hero position-relative overflow-hidden p-0 m-0 text-center bg-light">
+  <div class="hero position-relative overflow-hidden p-0 m-0 text-center bg-dark">
     <picture class="position-absolute">
-      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/v1732899394/slide-1_by72zv.jpg" type="image/svg+xml">
-      <img src="https://res.cloudinary.com/dzvitfc4b/image/upload/v1732899394/slide-1_by72zv.jpg" alt="...">
+      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1920/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        media="(min-width: 1400px)" type="image/svg+xml">
+      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1399/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        media="(min-width: 1200px)" type="image/svg+xml">
+      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1199/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        media="(min-width: 992px)" type="image/svg+xml">
+      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_991/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        media="(min-width: 768px)" type="image/svg+xml">
+      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_767/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        media="(min-width: 576px)" type="image/svg+xml">
+      <img src="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_575/dpr_auto/v1732899394/slide-1_by72zv.jpg"
+        width="767" height="auto" alt="..." loading="lazy" decoding="async">
     </picture>
     <div class="info position-absolute">
       <h1 class="title display-4 fw-normal">Innovative Solutions,<br>Tailored to Your Needs</h1>
-      <p class="description lead fw-normal">Expert-driven web and software development, designed to solve your toughest challenges.</p>
-      <a class="cta btn btn-light" href="/contact">Get Your Estimate</a>
+      <p class="description lead fw-normal">Expert-driven web development, designed to solve your toughest challenges.</p>
+      <a class="cta btn btn-light btn-lg" href="#">Get Your Estimate</a>
     </div>
   </div>
 </section>
 
-<section class="section container my-3">
+<!-- <section class="section container my-3">
   {{ partial "features" . }}
 </section>
 
@@ -26,6 +36,6 @@
 <section class="section container my-3">
   <h3 class="text-secondary text-center my-5">Featured Pages</h3>
   {{ partial "featured-pages" . }}
-</section>
+</section> -->
 
 {{ end }}
