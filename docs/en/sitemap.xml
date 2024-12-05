@@ -2,48 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.ingomez.com/authors/</loc>
+    <loc>http://localhost:1313/authors/</loc>
   </url><url>
-    <loc>https://www.ingomez.com/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es-MX"
-                href="https://www.ingomez.com/es/categories/"
+                href="http://localhost:1313/es/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="https://www.ingomez.com/categories/"
+                href="http://localhost:1313/categories/"
                 />
   </url><url>
-    <loc>https://www.ingomez.com/page/</loc>
+    <loc>http://localhost:1313/page/</loc>
   </url><url>
-    <loc>https://www.ingomez.com/tags/index/</loc>
+    <loc>http://localhost:1313/tags/index/</loc>
   </url><url>
-    <loc>https://www.ingomez.com/</loc>
+    <loc>http://localhost:1313/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es-MX"
-                href="https://www.ingomez.com/es/"
+                href="http://localhost:1313/es/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="https://www.ingomez.com/"
+                href="http://localhost:1313/"
                 />
   </url><url>
-    <loc>https://www.ingomez.com/authors/juan-gomez/</loc>
+    <loc>http://localhost:1313/authors/juan-gomez/</loc>
   </url><url>
-    <loc>https://www.ingomez.com/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es-MX"
-                href="https://www.ingomez.com/es/tags/"
+                href="http://localhost:1313/es/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="https://www.ingomez.com/tags/"
+                href="http://localhost:1313/tags/"
                 />
   </url>
 </urlset>
