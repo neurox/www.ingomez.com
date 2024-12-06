@@ -1,0 +1,24 @@
+[[main]]
+name = "Home"
+url = ""
+weight = 10
+
+[[footer]]
+name = "Home"
+url = ""
+weight = 10
+
+[[footer_col_1]]
+name = "Home"
+url = ""
+weight = 10
+
+[[footer_col_2]]
+name = "Home"
+url = ""
+weight = 10
+
+[[footer_col_3]]
+name = "Home"
+url = ""
+weight = 10
