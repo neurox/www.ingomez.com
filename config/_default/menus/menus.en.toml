@@ -3,13 +3,28 @@ name = "Home"
 url = ""
 weight = 10
 
-[[footer]]
-name = "Home"
+[[footer_col_1]]
+name = "Consultancy"
 url = ""
-weight = 10
+weight = 1
 
 [[footer_col_1]]
-name = "Home"
+name = "Wed Design"
+url = ""
+weight = 2
+
+[[footer_col_1]]
+name = "Wed Development"
+url = ""
+weight = 3
+
+[[footer_col_1]]
+name = "Support"
+url = ""
+weight = 4
+
+[[footer_col_2]]
+name = "Support"
 url = ""
 weight = 10
 
@@ -19,6 +34,9 @@ url = ""
 weight = 10
 
 [[footer_col_3]]
-name = "Home"
-url = ""
-weight = 10
+  name = "LinkedIN"
+  pre = '<i class="bi bi-linkedin"></i>'
+  url = "https://www.linkedin.com/company/ingomez"
+  weight = 10
+  [[footer_col_3.params]]
+    class = ' d-inline'
