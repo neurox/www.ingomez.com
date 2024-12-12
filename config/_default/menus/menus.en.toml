@@ -1,6 +1,6 @@
 [[main]]
 name = "Home"
-url = ""
+url = "/"
 weight = 10
 
 [[footer_col_1]]
@@ -35,7 +35,7 @@ weight = 10
 
 [[footer_col_3]]
   name = "LinkedIN"
-  pre = '<i class="bi bi-linkedin"></i>'
+  pre = '<i class="bi bi-linkedin" style="color: #0077B5"></i>'
   url = "https://www.linkedin.com/company/ingomez"
   weight = 10
   [[footer_col_3.params]]
