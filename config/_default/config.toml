@@ -2,14 +2,18 @@ baseURL = 'https://www.ingomez.com/'
 languageCode = 'en-us'
 title = 'INGOMEZ'
 author = 'Juan Gómez'
+description = 'Drupal architecture, DevOps strategy, and product engineering for teams that need reliable digital platforms.'
+relativeURLs = true
 copyright = '''
-    INGOMEZ created by <a class=\"text-muted text-decoration-none\"
-    href="https://www.juaning.dev" target="_blank">Juan Gómez</a>.
+    INGOMEZ. Built by <a href="https://www.juaning.dev" target="_blank" rel="noreferrer">Juan Gómez</a>.
     '''
 
 timeZone = 'America/Mexico_City'
-
-theme = 'hugo-bootstrap-theme'
-themesdir = 'node_modules/@filipecarneiro'
+removePathAccents = true
 
 publishDir = 'docs'
+
+[taxonomies]
+author = 'authors'
+category = 'categories'
+tag = 'tags'

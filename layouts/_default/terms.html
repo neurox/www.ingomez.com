@@ -1,0 +1,29 @@
+{{ define "main" }}
+  {{ $isSpanish := eq .Site.Language.Lang "es" }}
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{{ if $isSpanish }}Taxonomías{{ else }}Taxonomies{{ end }}</span>
+      <h1 class="page-hero__title">{{ .Title }}</h1>
+      <p class="page-hero__copy">
+        {{ if $isSpanish }}Accesos rápidos a todas las colecciones de contenido disponibles.{{ else }}Quick access to every available content collection.{{ end }}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="terms-grid">
+        {{ range .Data.Terms.Alphabetical }}
+          <article class="term-card">
+            <span class="term-count">{{ .Count }} {{ if $isSpanish }}entradas{{ else }}entries{{ end }}</span>
+            <h3><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></h3>
+            <p>{{ if $isSpanish }}Explora el contenido etiquetado dentro de esta colección.{{ else }}Explore the content grouped under this collection.{{ end }}</p>
+            <a class="term-card__link service-card__link" href="{{ .Page.RelPermalink }}">
+              {{ if $isSpanish }}Abrir colección{{ else }}Open collection{{ end }}
+            </a>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

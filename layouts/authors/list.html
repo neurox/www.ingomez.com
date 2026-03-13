@@ -1,0 +1,40 @@
+{{ define "main" }}
+  {{ $isSpanish := eq .Site.Language.Lang "es" }}
+  {{ $gridClass := "posts-grid" }}
+  {{ if .Content }}{{ $gridClass = "posts-grid posts-grid--offset" }}{{ end }}
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{{ if $isSpanish }}Autor{{ else }}Author{{ end }}</span>
+      <h1 class="page-hero__title">{{ .Title }}</h1>
+      <p class="page-hero__copy">
+        {{ if $isSpanish }}Entradas y páginas relacionadas con este autor.{{ else }}Posts and pages associated with this author.{{ end }}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {{ if .Content }}
+        <div class="content-surface rich-text">{{ .Content }}</div>
+      {{ end }}
+      <div class="{{ $gridClass }}">
+        {{ range .Pages.ByDate.Reverse }}
+          <article class="content-card">
+            <div class="content-meta">{{ .Date | time.Format ":date_long" }}</div>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p class="card-copy">
+              {{ with .Params.description }}
+                {{ . }}
+              {{ else }}
+                {{ .Summary | plainify | truncate 160 }}
+              {{ end }}
+            </p>
+            <a class="content-card__link service-card__link" href="{{ .RelPermalink }}">
+              {{ if $isSpanish }}Ver detalle{{ else }}View details{{ end }}
+            </a>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

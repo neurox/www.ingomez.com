@@ -1,16 +1,3 @@
-# Site Params
-
-# Open Graph, Twitter Cards and schema.org Thing and Article (in posts)
-# https://gohugo.io/templates/internal/#open-graph
-# https://gohugo.io/templates/internal/#twitter-cards
-# https://schema.org/Thing
-# https://schema.org/Article
-description = "Hugo theme for a secure, blazing fast and SEO-ready static website, using Bootstrap 5."
-#images = ['images/logo.svg','images/site-feature-image.png']
-#mainMenuLogo = 'images/logo.svg'
-
-[options]
-  bootStrapJs = true
-  breadCrumb = true
-  listCategoryFilter = true
-  listTagFilter = true
+description = "Drupal architecture, DevOps strategy, and product engineering for ambitious teams."
+email = "hello@ingomez.com"
+location = "Mexico City, MX"

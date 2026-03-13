@@ -2,13 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Juan Gómez on INGOMEZ</title>
-    <link>https://www.ingomez.com/authors/juan-gomez/</link>
+    <link>http://localhost:1313/authors/juan-gomez/</link>
     <description>Recent content in Juan Gómez on INGOMEZ</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <copyright>    INGOMEZ created by &lt;a class=\&#34;text-muted text-decoration-none\&#34;
-    href=&#34;https://www.juaning.dev&#34; target=&#34;_blank&#34;&gt;Juan Gómez&lt;/a&gt;.
+    <copyright>    INGOMEZ. Built by &lt;a href=&#34;https://www.juaning.dev&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Juan Gómez&lt;/a&gt;.
     </copyright>
-    <atom:link href="https://www.ingomez.com/authors/juan-gomez/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/authors/juan-gomez/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docs</title>
+      <link>http://localhost:1313/page/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/page/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

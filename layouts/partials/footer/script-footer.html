@@ -1,0 +1,9 @@
+{{ $js := resources.Get "js/main.js" }}
+{{ with $js }}
+  {{ if eq hugo.Environment "development" }}
+    <script src="{{ .RelPermalink }}" defer></script>
+  {{ else }}
+    {{ $secureJS := . | minify | fingerprint "sha256" }}
+    <script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}" crossorigin="anonymous" defer></script>
+  {{ end }}
+{{ end }}

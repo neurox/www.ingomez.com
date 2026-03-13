@@ -1,0 +1,61 @@
+{{ define "main" }}
+  {{ $isSpanish := eq .Site.Language.Lang "es" }}
+  {{ $gridClass := "posts-grid" }}
+  {{ if .Content }}{{ $gridClass = "posts-grid posts-grid--offset" }}{{ end }}
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{{ if eq .Kind "taxonomy" }}{{ if $isSpanish }}Colección{{ else }}Collection{{ end }}{{ else }}{{ if $isSpanish }}Explora{{ else }}Explore{{ end }}{{ end }}</span>
+      <h1 class="page-hero__title">{{ .Title }}</h1>
+      <p class="page-hero__copy">
+        {{ with .Content }}
+          {{ . | plainify }}
+        {{ else }}
+          {{ if $isSpanish }}
+            Navega el contenido publicado en esta sección.
+          {{ else }}
+            Browse the published content available in this section.
+          {{ end }}
+        {{ end }}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {{ if .Content }}
+        <div class="content-surface rich-text">{{ .Content }}</div>
+      {{ end }}
+
+      {{ if .Pages }}
+        <div class="{{ $gridClass }}">
+          {{ range .Pages.ByTitle }}
+            <article class="content-card">
+              <div class="content-meta">
+                {{ if .Date.IsZero }}
+                  {{ if $isSpanish }}Página{{ else }}Page{{ end }}
+                {{ else }}
+                  {{ .Date | time.Format ":date_long" }}
+                {{ end }}
+              </div>
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+              <p class="card-copy">
+                {{ with .Params.description }}
+                  {{ . }}
+                {{ else }}
+                  {{ .Summary | plainify | truncate 160 }}
+                {{ end }}
+              </p>
+              <a class="content-card__link service-card__link" href="{{ .RelPermalink }}">
+                {{ if $isSpanish }}Ver detalle{{ else }}View details{{ end }}
+              </a>
+            </article>
+          {{ end }}
+        </div>
+      {{ else if not .Content }}
+        <div class="empty-state">
+          {{ if $isSpanish }}Todavía no hay entradas publicadas en esta sección.{{ else }}There are no published entries in this section yet.{{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

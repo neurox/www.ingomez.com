@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ $isSpanish := eq .Site.Language.Lang "es" }}
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">404</span>
+      <h1 class="page-hero__title">{{ if $isSpanish }}Esta página ya no existe.{{ else }}This page no longer exists.{{ end }}</h1>
+      <p class="page-hero__copy">
+        {{ if $isSpanish }}La URL puede haber cambiado o el contenido fue movido.{{ else }}The URL may have changed or the content moved elsewhere.{{ end }}
+      </p>
+      <div class="hero__actions">
+        <a class="button-link button-link--primary" href="{{ .Site.Home.RelPermalink }}">{{ if $isSpanish }}Volver al inicio{{ else }}Back to homepage{{ end }}</a>
+      </div>
+    </div>
+  </section>
+{{ end }}

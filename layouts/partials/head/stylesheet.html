@@ -1,5 +1,4 @@
 {{- $sassOptions := dict "targetPath" "css/style.css" "enableSourceMap" true "outputStyle" "expanded" "precision" 6 -}}
-{{/*- $postcssOptions := dict "use" "autoprefixer" "noMap" true -*/}}
 
 {{ if eq hugo.Environment "production" -}}
   {{- $sassOptions = merge $sassOptions (dict "outputStyle" "compressed") -}}

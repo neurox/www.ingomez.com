@@ -1,41 +1,187 @@
 {{ define "main" }}
-
-<section class="section bd-masthead">
-  <div class="hero position-relative overflow-hidden p-0 m-0 text-center bg-dark">
-    <picture class="position-absolute">
-      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1920/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        media="(min-width: 1400px)" type="image/svg+xml">
-      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1399/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        media="(min-width: 1200px)" type="image/svg+xml">
-      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1199/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        media="(min-width: 992px)" type="image/svg+xml">
-      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_991/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        media="(min-width: 768px)" type="image/svg+xml">
-      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_767/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        media="(min-width: 576px)" type="image/svg+xml">
-      <img src="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_575/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        width="767" height="auto" alt="..." loading="lazy" decoding="async">
-    </picture>
-    <div class="info position-absolute">
-      <h1 class="title display-4 fw-normal">Soluciones Innovadoras, <br>Adaptadas a Ti</h1>
-      <p class="description lead fw-normal">Desarrollo web con expertos, creado para resolver tus mayores retos</p>
-      <a class="cta btn btn-light btn-lg" href="#">Solicita tu Cotización</a>
+<section class="hero">
+  <div class="container hero__grid">
+    <div>
+      <span class="eyebrow">Listo para Enterprise</span>
+      <h1 class="hero__title">Arquitectura <em>Drupal</em> para plataformas que escalan</h1>
+      <p class="hero__copy">
+        INGOMEZ ayuda a los equipos a operar plataformas confiables mediante arquitectura Drupal, estrategia DevOps e ingeniería de producto pensada para crecer sin fricción.
+      </p>
+      <div class="hero__actions">
+        <a class="button-link button-link--primary" href="#solutions">Servicios</a>
+        <a class="button-link button-link--secondary" href="#cases">Casos de estudio</a>
+      </div>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <div class="orb orb--one"></div>
+      <div class="orb orb--two"></div>
+      <div class="dashboard">
+        <div class="dashboard__panel">
+          <div class="dashboard__toolbar">
+            <div class="dashboard__pill"></div>
+            <div class="dashboard__pill"></div>
+            <div class="dashboard__button"></div>
+          </div>
+          <div class="dashboard__columns">
+            <div class="dashboard__metric">
+              <span>Disponibilidad</span>
+              <strong>99.9%</strong>
+            </div>
+            <div class="dashboard__metric">
+              <span>Estado del pipeline</span>
+              <strong>Estable</strong>
+            </div>
+          </div>
+          <div class="dashboard__chart">
+            <div class="dashboard__bars">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="dashboard__table">
+            <div class="dashboard__row"><div></div><div class="dashboard__tag"></div></div>
+            <div class="dashboard__row"><div></div><div class="dashboard__tag"></div></div>
+            <div class="dashboard__row"><div></div><div class="dashboard__tag"></div></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- <section class="section container my-3">
-  {{ partial "features" . }}
+<section class="section">
+  <div class="container stat-grid">
+    <article class="metric-card">
+      <span>Confiabilidad</span>
+      <strong>99.9% Uptime</strong>
+      <p>Failover automatizado, observabilidad y disciplina de liberación.</p>
+    </article>
+    <article class="metric-card">
+      <span>Eficiencia</span>
+      <strong>10k+ Deploys</strong>
+      <p>Volumen anual de entrega sostenido por flujos de CI/CD robustos.</p>
+    </article>
+    <article class="metric-card">
+      <span>Confianza</span>
+      <strong>50+ Equipos</strong>
+      <p>Trabajo transversal con organizaciones enterprise y equipos en crecimiento.</p>
+    </article>
+  </div>
 </section>
 
-<section class="section container my-3">
-  <h3 class="text-secondary text-center my-5">Latest Posts</h3>
-  {{ partial "latest-posts" . }}
+<section class="section" id="expertise">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-heading__label">Experiencia</span>
+      <h2>Excelencia técnica de punta a punta</h2>
+      <p>Diseñamos, reforzamos y evolucionamos plataformas Drupal complejas con criterios de ingeniería pragmáticos.</p>
+    </div>
+    <div class="cards-grid">
+      <article class="service-card">
+        <span class="service-card__icon">01</span>
+        <h3>Migraciones Drupal</h3>
+        <p>Actualizaciones y replatforming estructurados para reducir riesgo operativo y preservar continuidad.</p>
+        <a class="service-card__link" href="#about">Conoce más</a>
+      </article>
+      <article class="service-card">
+        <span class="service-card__icon">02</span>
+        <h3>Pipelines CI/CD</h3>
+        <p>Automatización de build, pruebas y despliegue para que la calidad de entrega sea repetible y visible.</p>
+        <a class="service-card__link" href="#about">Conoce más</a>
+      </article>
+      <article class="service-card">
+        <span class="service-card__icon">03</span>
+        <h3>Hardening de seguridad</h3>
+        <p>Parcheo continuo, auditorías y prácticas operativas alineadas con entornos sensibles.</p>
+        <a class="service-card__link" href="#about">Conoce más</a>
+      </article>
+      <article class="service-card">
+        <span class="service-card__icon">04</span>
+        <h3>Orquestación cloud</h3>
+        <p>Patrones de infraestructura confiables para workloads en contenedores, escalamiento y servicios gestionados.</p>
+        <a class="service-card__link" href="#about">Conoce más</a>
+      </article>
+    </div>
+  </div>
 </section>
 
-<section class="section container my-3">
-  <h3 class="text-secondary text-center my-5">Featured Pages</h3>
-  {{ partial "featured-pages" . }}
-</section> -->
+<section class="section" id="solutions">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-heading__label">Soluciones</span>
+      <h2>Sistemas de entrega que resisten carga real</h2>
+      <p>Desde revisión de arquitectura hasta reducción de incidentes, el foco es ejecución estable, handoff claro y mejoras operativas medibles.</p>
+    </div>
+    <div class="feature-grid">
+      <article class="info-card">
+        <h3>Revisión de arquitectura</h3>
+        <p>Auditorías de plataforma, mapeo de dependencias y guías de roadmap para remover cuellos de botella antes de que escalen.</p>
+      </article>
+      <article class="info-card">
+        <h3>Preparación operativa</h3>
+        <p>Monitoreo, respaldo, recuperación y controles de rollout para que los cambios en producción sean deliberados.</p>
+      </article>
+      <article class="info-card">
+        <h3>Habilitación de equipos</h3>
+        <p>Documentación, procesos de release y alineación técnica que aumentan velocidad sin depender de heroics.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
+<section class="section" id="cases">
+  <div class="container case-studies__grid">
+    <div>
+      <div class="section-heading">
+        <span class="section-heading__label">Casos de estudio</span>
+        <h2>Probado a escala enterprise</h2>
+        <p>Engagements representativos donde complejidad de plataforma, velocidad y gobernanza tuvieron que convivir.</p>
+      </div>
+      <div class="case-stack">
+        <article class="case-card case-card--primary">
+          <span>Conglomerado global de medios</span>
+          <h3>Consolidación multisite en AWS</h3>
+          <p>Migración de 40+ propiedades a una base Drupal compartida con mayor control de release y menor costo operativo.</p>
+        </article>
+        <article class="case-card">
+          <span>Infraestructura fintech</span>
+          <h3>Flujo de entrega con foco en compliance</h3>
+          <p>Se introdujeron chequeos automáticos de seguridad y release gates para equipos con requisitos PCI.</p>
+        </article>
+      </div>
+    </div>
+    <aside class="featured-study">
+      <span>Estudio destacado</span>
+      <h3>200% más rendimiento</h3>
+      <p>Optimización de una plataforma legacy en Drupal Commerce para mejorar tiempos de respuesta antes de una temporada de alto tráfico.</p>
+      <a class="button-link button-link--ghost" href="mailto:{{ .Site.Params.email }}">Ver caso completo</a>
+    </aside>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="container about-section__grid">
+    <div class="panel-card">
+      <span class="section-heading__label">Sobre INGOMEZ</span>
+      <h2>Liderazgo técnico para equipos que necesitan claridad.</h2>
+      <p class="card-copy">
+        El trabajo mezcla visión de producto, rigor de infraestructura y sistemas de entrega que sobreviven presión operativa real.
+      </p>
+      <ul>
+        <li>Dirección de arquitectura para Drupal y plataformas web componibles.</li>
+        <li>Flujos operativos que vuelven los releases más seguros y predecibles.</li>
+        <li>Consultoría orientada a resultados, no a retainer genérico.</li>
+      </ul>
+    </div>
+    <div class="panel-card">
+      <span class="section-heading__label">Inicia la conversación</span>
+      <h2>¿Necesitas una base técnica más limpia?</h2>
+      <p class="card-copy">
+        Comparte las restricciones actuales de entrega, metas de migración o problemas de confiabilidad y definimos el siguiente paso con foco.
+      </p>
+      <div class="hero__actions">
+        <a class="button-link button-link--primary" href="mailto:{{ .Site.Params.email }}">hello@ingomez.com</a>
+      </div>
+    </div>
+  </div>
+</section>
 {{ end }}

@@ -1,0 +1,50 @@
+{{ $isSpanish := eq .Site.Language.Lang "es" }}
+<footer class="site-footer" id="about">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a class="brand" href="{{ .Site.Home.RelPermalink }}">
+          <span class="brand__mark">I</span>
+          <span class="brand__text">{{ .Site.Title }}</span>
+        </a>
+        <p class="card-copy" style="margin-top: 1rem; max-width: 28rem;">
+          {{ if $isSpanish }}
+            Ingeniería web, estrategia Drupal y operaciones de plataforma para equipos que necesitan velocidad sin sacrificar estabilidad.
+          {{ else }}
+            Web engineering, Drupal strategy, and platform operations for teams that need speed without sacrificing reliability.
+          {{ end }}
+        </p>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">{{ if $isSpanish }}Experiencia{{ else }}Expertise{{ end }}</h2>
+        <div class="site-footer__list">
+          <a href="{{ .Site.Home.RelPermalink }}#expertise">{{ if $isSpanish }}Arquitectura Drupal{{ else }}Drupal Architecture{{ end }}</a>
+          <a href="{{ .Site.Home.RelPermalink }}#solutions">{{ if $isSpanish }}Estrategia DevOps{{ else }}DevOps Strategy{{ end }}</a>
+          <a href="{{ .Site.Home.RelPermalink }}#cases">{{ if $isSpanish }}Casos de estudio{{ else }}Case Studies{{ end }}</a>
+        </div>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">{{ if $isSpanish }}Recursos{{ else }}Resources{{ end }}</h2>
+        <div class="site-footer__list">
+          <a href="{{ `/page/` | relLangURL }}">{{ if $isSpanish }}Páginas{{ else }}Pages{{ end }}</a>
+          <a href="{{ `/authors/` | relLangURL }}">{{ if $isSpanish }}Autores{{ else }}Authors{{ end }}</a>
+          <a href="{{ `/tags/` | relLangURL }}">{{ if $isSpanish }}Etiquetas{{ else }}Tags{{ end }}</a>
+        </div>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">{{ if $isSpanish }}Contacto{{ else }}Contact{{ end }}</h2>
+        <div class="site-footer__list">
+          <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+          <span>{{ .Site.Params.location }}</span>
+          <a href="https://www.juaning.dev" target="_blank" rel="noreferrer">juaning.dev</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <div>{{ .Site.Copyright | safeHTML }}</div>
+      <div>
+        <a href="{{ .Site.Home.RelPermalink }}">{{ if $isSpanish }}Inicio{{ else }}Home{{ end }}</a>
+      </div>
+    </div>
+  </div>
+</footer>

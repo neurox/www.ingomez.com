@@ -1,41 +1,187 @@
 {{ define "main" }}
-
-<section class="section bd-masthead">
-  <div class="hero position-relative overflow-hidden p-0 m-0 text-center bg-dark">
-    <picture class="position-absolute">
-      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1920/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        media="(min-width: 1400px)" type="image/svg+xml">
-      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1399/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        media="(min-width: 1200px)" type="image/svg+xml">
-      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_1199/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        media="(min-width: 992px)" type="image/svg+xml">
-      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_991/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        media="(min-width: 768px)" type="image/svg+xml">
-      <source srcset="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_767/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        media="(min-width: 576px)" type="image/svg+xml">
-      <img src="https://res.cloudinary.com/dzvitfc4b/image/upload/c_limit,w_575/dpr_auto/v1732899394/slide-1_by72zv.jpg"
-        width="767" height="auto" alt="..." loading="lazy" decoding="async">
-    </picture>
-    <div class="info position-absolute">
-      <h1 class="title display-4 fw-normal">Innovative Solutions, <br>Tailored to Your Needs</h1>
-      <p class="description lead fw-normal">Expert-driven web development designed to solve your toughest challenges.</p>
-      <a class="cta btn btn-light btn-lg" href="#">Get Your Quote</a>
+<section class="hero">
+  <div class="container hero__grid">
+    <div>
+      <span class="eyebrow">Enterprise Ready</span>
+      <h1 class="hero__title">Architecting Scalable <em>Drupal</em> Ecosystems</h1>
+      <p class="hero__copy">
+        INGOMEZ helps teams ship reliable digital platforms through Drupal architecture, DevOps strategy, and product engineering designed for scale.
+      </p>
+      <div class="hero__actions">
+        <a class="button-link button-link--primary" href="#solutions">Our Services</a>
+        <a class="button-link button-link--secondary" href="#cases">Case Studies</a>
+      </div>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <div class="orb orb--one"></div>
+      <div class="orb orb--two"></div>
+      <div class="dashboard">
+        <div class="dashboard__panel">
+          <div class="dashboard__toolbar">
+            <div class="dashboard__pill"></div>
+            <div class="dashboard__pill"></div>
+            <div class="dashboard__button"></div>
+          </div>
+          <div class="dashboard__columns">
+            <div class="dashboard__metric">
+              <span>Platform Uptime</span>
+              <strong>99.9%</strong>
+            </div>
+            <div class="dashboard__metric">
+              <span>Pipeline Health</span>
+              <strong>Green</strong>
+            </div>
+          </div>
+          <div class="dashboard__chart">
+            <div class="dashboard__bars">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="dashboard__table">
+            <div class="dashboard__row"><div></div><div class="dashboard__tag"></div></div>
+            <div class="dashboard__row"><div></div><div class="dashboard__tag"></div></div>
+            <div class="dashboard__row"><div></div><div class="dashboard__tag"></div></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- <section class="section container my-3">
-  {{ partial "features" . }}
+<section class="section">
+  <div class="container stat-grid">
+    <article class="metric-card">
+      <span>Reliability</span>
+      <strong>99.9% Uptime</strong>
+      <p>Automated failover, observability, and release discipline.</p>
+    </article>
+    <article class="metric-card">
+      <span>Efficiency</span>
+      <strong>10k+ Deploys</strong>
+      <p>Annual delivery volume supported by resilient CI/CD workflows.</p>
+    </article>
+    <article class="metric-card">
+      <span>Trust</span>
+      <strong>50+ Global</strong>
+      <p>Cross-functional work across enterprise and growth-stage teams.</p>
+    </article>
+  </div>
 </section>
 
-<section class="section container my-3">
-  <h3 class="text-secondary text-center my-5">Latest Posts</h3>
-  {{ partial "latest-posts" . }}
+<section class="section" id="expertise">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-heading__label">Our Expertise</span>
+      <h2>End-to-End Technical Excellence</h2>
+      <p>We design, harden, and evolve complex Drupal platforms with pragmatic engineering standards.</p>
+    </div>
+    <div class="cards-grid">
+      <article class="service-card">
+        <span class="service-card__icon">01</span>
+        <h3>Drupal Migration</h3>
+        <p>Structured upgrades and replatforming plans that reduce delivery risk and preserve business continuity.</p>
+        <a class="service-card__link" href="#about">Learn more</a>
+      </article>
+      <article class="service-card">
+        <span class="service-card__icon">02</span>
+        <h3>CI/CD Pipelines</h3>
+        <p>Build, test, and deployment automation that keeps release quality visible and repeatable.</p>
+        <a class="service-card__link" href="#about">Learn more</a>
+      </article>
+      <article class="service-card">
+        <span class="service-card__icon">03</span>
+        <h3>Security Hardening</h3>
+        <p>Continuous patching, audit workflows, and operating practices aligned with sensitive environments.</p>
+        <a class="service-card__link" href="#about">Learn more</a>
+      </article>
+      <article class="service-card">
+        <span class="service-card__icon">04</span>
+        <h3>Cloud Orchestration</h3>
+        <p>Reliable infrastructure patterns for containerized workloads, platform scaling, and managed services.</p>
+        <a class="service-card__link" href="#about">Learn more</a>
+      </article>
+    </div>
+  </div>
 </section>
 
-<section class="section container my-3">
-  <h3 class="text-secondary text-center my-5">Featured Pages</h3>
-  {{ partial "featured-pages" . }}
-</section> -->
+<section class="section" id="solutions">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-heading__label">Solutions</span>
+      <h2>Delivery Systems That Hold Up Under Load</h2>
+      <p>From architecture review to incident reduction, the focus is stable execution, clean handoff, and measurable operational gains.</p>
+    </div>
+    <div class="feature-grid">
+      <article class="info-card">
+        <h3>Architecture Reviews</h3>
+        <p>Platform audits, dependency mapping, and roadmap guidance to remove bottlenecks before they scale.</p>
+      </article>
+      <article class="info-card">
+        <h3>Operational Readiness</h3>
+        <p>Monitoring, backup, recovery, and rollout controls so production changes are deliberate instead of risky.</p>
+      </article>
+      <article class="info-card">
+        <h3>Team Enablement</h3>
+        <p>Documentation, release processes, and technical alignment that improve delivery velocity without heroics.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
+<section class="section" id="cases">
+  <div class="container case-studies__grid">
+    <div>
+      <div class="section-heading">
+        <span class="section-heading__label">Case Studies</span>
+        <h2>Proven at Enterprise Scale</h2>
+        <p>Representative engagements where platform complexity, speed, and governance all had to coexist.</p>
+      </div>
+      <div class="case-stack">
+        <article class="case-card case-card--primary">
+          <span>Global Media Conglomerate</span>
+          <h3>Multi-site consolidation on AWS</h3>
+          <p>Migrated 40+ properties into a shared Drupal foundation with tighter release control and lower maintenance overhead.</p>
+        </article>
+        <article class="case-card">
+          <span>Fintech Infrastructure</span>
+          <h3>Compliance-focused delivery workflow</h3>
+          <p>Introduced automated security checks and release gates to support PCI-sensitive product teams.</p>
+        </article>
+      </div>
+    </div>
+    <aside class="featured-study">
+      <span>Featured Study</span>
+      <h3>200% Performance Increase</h3>
+      <p>Optimization work on a legacy Drupal commerce stack improved response times before a high-traffic seasonal launch.</p>
+      <a class="button-link button-link--ghost" href="mailto:{{ .Site.Params.email }}">Read Full Case</a>
+    </aside>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="container about-section__grid">
+    <div class="panel-card">
+      <span class="section-heading__label">About INGOMEZ</span>
+      <h2>Technical leadership for teams that need clarity.</h2>
+      <p class="card-copy">
+        The work combines product thinking, infrastructure rigor, and delivery systems that survive real operating pressure.
+      </p>
+      <ul>
+        <li>Architecture direction for Drupal and composable web platforms.</li>
+        <li>Operational workflows that make releases safer and more predictable.</li>
+        <li>Consulting engagements shaped around outcomes, not generic retainer noise.</li>
+      </ul>
+    </div>
+    <div class="panel-card">
+      <span class="section-heading__label">Start a Conversation</span>
+      <h2>Need a cleaner platform foundation?</h2>
+      <p class="card-copy">
+        Share the current delivery constraints, migration goals, or reliability issues and we can scope a focused next step.
+      </p>
+      <div class="hero__actions">
+        <a class="button-link button-link--primary" href="mailto:{{ .Site.Params.email }}">hello@ingomez.com</a>
+      </div>
+    </div>
+  </div>
+</section>
 {{ end }}

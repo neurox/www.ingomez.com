@@ -1,0 +1,20 @@
+{{ define "main" }}
+  {{ $isSpanish := eq .Site.Language.Lang "es" }}
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{{ if $isSpanish }}Contenido{{ else }}Content{{ end }}</span>
+      <h1 class="page-hero__title">{{ .Title }}</h1>
+      {{ with .Params.description }}
+        <p class="page-hero__copy">{{ . }}</p>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <article class="content-surface rich-text">
+        {{ .Content }}
+      </article>
+    </div>
+  </section>
+{{ end }}
