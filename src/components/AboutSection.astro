@@ -1,0 +1,43 @@
+---
+import { t } from '../i18n/translations';
+import ContactForm from './ContactForm.astro';
+
+const locale = Astro.currentLocale as 'en' | 'es';
+---
+
+<section id="about" class="py-16 border-t-4 border-brand-orange">
+  <div class="mb-10">
+    <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">{t('about.label', locale)}</span>
+    <h2 class="mt-2 font-display text-4xl sm:text-5xl font-bold uppercase leading-none tracking-tight text-brand-navy">{t('about.title', locale)}</h2>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+    <div>
+      <p class="text-brand-brown leading-relaxed">{t('about.copy1', locale)}</p>
+      <p class="mt-4 text-brand-brown leading-relaxed">{t('about.copy2', locale)}</p>
+    </div>
+    <div class="card-outline">
+      <h3 class="font-display text-lg font-bold uppercase tracking-tight text-brand-orange">{t('about.principles.title', locale)}</h3>
+      <ul class="mt-4 space-y-3">
+        {t('about.principles.items', locale) && [0, 1, 2].map(i => (
+          <li class="flex items-start gap-3 text-brand-brown text-sm">
+            <span class="mt-0.5 font-display font-bold text-brand-orange">&gt;</span>
+            {t(`about.principles.items.${i}`, locale)}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-dark relative overflow-hidden">
+    <div class="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-brand-orange/20 blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+    <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">{t('about.contact.label', locale)}</span>
+        <h2 class="mt-2 font-display text-3xl font-bold uppercase leading-none tracking-tight">{t('about.contact.title', locale)}</h2>
+        <p class="mt-4 text-brand-bg/70 leading-relaxed">{t('about.contact.copy', locale)}</p>
+      </div>
+      <ContactForm />
+    </div>
+  </div>
+</section>

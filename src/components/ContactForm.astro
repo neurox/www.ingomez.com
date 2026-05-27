@@ -1,0 +1,217 @@
+---
+import { t } from '../i18n/translations';
+
+const locale = Astro.currentLocale as 'en' | 'es';
+const recaptchaSiteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY || 'YOUR_RECAPTCHA_SITE_KEY';
+const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMIT_HASH';
+---
+
+<form
+  id="contact-form"
+  class="grid gap-5"
+>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <label class="flex flex-col gap-1.5">
+      <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">
+        {t('form.name', locale)} <span class="text-brand-bg/40">*</span>
+      </span>
+      <input
+        type="text"
+        id="form-name"
+        name="name"
+        required
+        class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/30 focus:outline-none focus:border-brand-orange transition-colors"
+        placeholder={locale === 'es' ? 'Tu nombre' : 'Your name'}
+      />
+    </label>
+    <label class="flex flex-col gap-1.5">
+      <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">
+        {t('form.email', locale)} <span class="text-brand-bg/40">*</span>
+      </span>
+      <input
+        type="email"
+        id="form-email"
+        name="email"
+        required
+        class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/30 focus:outline-none focus:border-brand-orange transition-colors"
+        placeholder="email@ejemplo.com"
+      />
+    </label>
+  </div>
+  <label class="flex flex-col gap-1.5">
+    <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">
+      {t('form.company', locale)} <span class="text-brand-bg/40">(opcional)</span>
+    </span>
+    <input
+      type="text"
+      id="form-company"
+      name="company"
+      class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/30 focus:outline-none focus:border-brand-orange transition-colors"
+      placeholder={locale === 'es' ? 'Nombre de tu empresa' : 'Company name'}
+    />
+  </label>
+  <label class="flex flex-col gap-1.5">
+    <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">
+      {t('form.message', locale)} <span class="text-brand-bg/40">*</span>
+    </span>
+    <textarea
+      id="form-message"
+      name="message"
+      rows="4"
+      required
+      class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/30 focus:outline-none focus:border-brand-orange transition-colors resize-none"
+      placeholder={locale === 'es' ? 'Cuéntanos sobre tu proyecto, necesidades o desafíos...' : 'Tell us about your project, needs, or challenges...'}
+    ></textarea>
+  </label>
+
+  <div class="g-recaptcha" data-sitekey={recaptchaSiteKey} data-theme="dark"></div>
+
+  <noscript>
+    <p class="text-sm text-brand-bg/50">
+      {locale === 'es' ? 'Activa JavaScript para enviar este formulario.' : 'Enable JavaScript to submit this form.'}
+    </p>
+  </noscript>
+
+  <button
+    type="submit"
+    class="btn-primary font-bold text-sm w-full sm:w-auto"
+    id="submit-btn"
+  >
+    {t('form.submit', locale)}
+  </button>
+
+  <p class="text-xs text-brand-bg/30 mt-2">
+    {locale === 'es'
+      ? 'Protegido por reCAPTCHA. Tus datos se tratan de forma segura.'
+      : 'Protected by reCAPTCHA. Your data is handled securely.'}
+  </p>
+</form>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+<style>
+  .swal2-popup {
+    background: #0c1b2f !important;
+    border: 1px solid rgba(180, 83, 43, 0.25) !important;
+    box-shadow: 0 0 30px rgba(180, 83, 43, 0.1) !important;
+    border-radius: 12px !important;
+  }
+  .swal2-title {
+    color: #f4ebe1 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1.25rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+  .swal2-html-container {
+    color: #f4ebe1 !important;
+    opacity: 0.7 !important;
+  }
+  .swal2-confirm {
+    background-color: #b4532b !important;
+    color: #f4ebe1 !important;
+    font-weight: 700 !important;
+    border-radius: 9999px !important;
+    padding: 10px 24px !important;
+    font-size: 0.875rem !important;
+  }
+  .swal2-icon.swal2-success {
+    border-color: #b4532b !important;
+    color: #b4532b !important;
+  }
+  .swal2-icon.swal2-success [class^='swal2-success-line'] {
+    background-color: #b4532b !important;
+  }
+  .swal2-icon.swal2-success .swal2-success-ring {
+    border-color: rgba(180, 83, 43, 0.3) !important;
+  }
+  .swal2-icon.swal2-error {
+    border-color: #b4532b !important;
+    color: #b4532b !important;
+  }
+  .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
+    background-color: #b4532b !important;
+  }
+</style>
+
+<script define:vars={{ formsubmitHash }}>
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const originalText = submitBtn?.textContent || '';
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      Swal.fire({
+        icon: 'error',
+        title: document.documentElement.lang === 'es-MX' ? 'Verificación requerida' : 'Verification required',
+        text: document.documentElement.lang === 'es-MX'
+          ? 'Por favor completa el reCAPTCHA.'
+          : 'Please complete the reCAPTCHA.',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
+
+    if (!submitBtn) return;
+    const sendingText = document.documentElement.lang === 'es-MX' ? 'Enviando...' : 'Sending...';
+    submitBtn.textContent = sendingText;
+    (submitBtn as HTMLButtonElement).disabled = true;
+
+    const formData = {
+      name: (document.getElementById('form-name') as HTMLInputElement).value,
+      email: (document.getElementById('form-email') as HTMLInputElement).value,
+      company: (document.getElementById('form-company') as HTMLInputElement).value,
+      message: (document.getElementById('form-message') as HTMLTextAreaElement).value,
+      'g-recaptcha-response': recaptchaResponse,
+      _subject: document.documentElement.lang === 'es-MX'
+        ? 'Nuevo mensaje de INGOMEZ'
+        : 'New message from INGOMEZ',
+    };
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/' + formsubmitHash, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await res.json();
+
+      if (result.success === 'true' || res.ok) {
+        Swal.fire({
+          icon: 'success',
+          title: document.documentElement.lang === 'es-MX' ? 'Mensaje enviado' : 'Message sent',
+          text: document.documentElement.lang === 'es-MX'
+            ? 'Gracias. Te responderemos pronto.'
+            : 'Thanks! We\'ll get back to you soon.',
+          confirmButtonText: document.documentElement.lang === 'es-MX' ? 'Entendido' : 'Got it'
+        });
+        form!.reset();
+        grecaptcha.reset();
+      } else {
+        throw new Error('FormSubmit error');
+      }
+    } catch (err) {
+      Swal.fire({
+        icon: 'error',
+        title: document.documentElement.lang === 'es-MX' ? 'Error de conexión' : 'Connection error',
+        text: document.documentElement.lang === 'es-MX'
+          ? 'Algo salió mal. Escríbenos directamente a hello@ingomez.com.'
+          : 'Something went wrong. Email us directly at hello@ingomez.com.',
+        confirmButtonText: 'OK'
+      });
+    } finally {
+      submitBtn.textContent = originalText;
+      (submitBtn as HTMLButtonElement).disabled = false;
+    }
+  });
+</script>

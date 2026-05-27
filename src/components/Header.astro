@@ -1,0 +1,55 @@
+---
+import { t } from '../i18n/translations';
+
+const locale = Astro.currentLocale as 'en' | 'es';
+const homeUrl = locale === 'es' ? '/' : '/en/';
+
+const navItems = [
+  { id: 'services', key: 'header.services' },
+  { id: 'process', key: 'header.process' },
+  { id: 'model', key: 'header.model' },
+  { id: 'about', key: 'header.about' },
+];
+---
+
+<header class="sticky top-0 z-20 bg-brand-bg/95 backdrop-blur-sm border-b-4 border-brand-navy">
+  <div class="flex items-center justify-between gap-4 min-h-[72px]">
+    <a class="flex items-center gap-3 font-display text-2xl font-bold uppercase tracking-tight text-brand-navy" href={homeUrl}>
+      <span class="inline-grid place-items-center w-10 h-10 rounded-lg bg-brand-navy text-brand-bg text-sm">I</span>
+      INGOMEZ
+    </a>
+
+    <button
+      class="menu-toggle lg:hidden inline-grid place-items-center w-11 h-11 border-2 border-brand-navy rounded-lg bg-brand-bg text-brand-navy"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label={t('header.openNav', locale)}
+    >
+      <span class="block w-4 h-0.5 bg-current rounded-full relative before:block before:w-4 before:h-0.5 before:bg-current before:rounded-full before:-translate-y-1.5 after:block after:w-4 after:h-0.5 after:bg-current after:rounded-full after:translate-y-1"></span>
+    </button>
+
+    <nav class="site-nav hidden lg:flex items-center gap-8" id="site-nav" aria-label={t('header.navAria', locale)}>
+      <div class="flex items-center gap-1">
+        {navItems.map(item => (
+          <a href={`${homeUrl}#${item.id}`} class="px-4 py-2 rounded-full text-sm font-medium text-brand-navy hover:bg-brand-navy hover:text-brand-bg transition-colors">
+            {t(item.key, locale)}
+          </a>
+        ))}
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-0.5 border-2 border-brand-navy rounded-full p-0.5">
+          <a href="/en/" class={`px-3 py-1 rounded-full text-xs font-bold transition-colors ${locale === 'en' ? 'bg-brand-navy text-brand-bg' : 'text-brand-navy hover:bg-brand-navy/10'}`}>
+            EN
+          </a>
+          <a href="/" class={`px-3 py-1 rounded-full text-xs font-bold transition-colors ${locale === 'es' ? 'bg-brand-navy text-brand-bg' : 'text-brand-navy hover:bg-brand-navy/10'}`}>
+            ES
+          </a>
+        </div>
+        <a class="btn-primary text-sm font-bold" href="mailto:hello@ingomez.com">
+          {t('header.getQuote', locale)}
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>

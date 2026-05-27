@@ -1,0 +1,30 @@
+---
+import { t } from '../i18n/translations';
+import StudioGraphic from './StudioGraphic.astro';
+
+const locale = Astro.currentLocale as 'en' | 'es';
+---
+
+<section class="pt-12 pb-16">
+  <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 items-center">
+    <div>
+      <span class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 border-2 border-brand-navy rounded-full text-xs font-bold uppercase tracking-widest text-brand-navy">
+        <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+        {t('hero.eyebrow', locale)}
+      </span>
+      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold uppercase leading-none tracking-tight text-brand-navy" set:html={t('hero.title', locale)} />
+      <p class="mt-6 text-brand-brown text-lg leading-relaxed max-w-lg">
+        {t('hero.copy', locale)}
+      </p>
+      <div class="flex flex-wrap gap-3 mt-8">
+        <a class="btn-primary font-bold text-sm" href="#services">
+          {t('hero.servicesLink', locale)}
+        </a>
+        <a class="px-6 py-2 rounded-full border-2 border-brand-navy text-brand-navy font-bold text-sm hover:bg-brand-navy hover:text-brand-bg transition-colors" href="#process">
+          {t('hero.modelLink', locale)}
+        </a>
+      </div>
+    </div>
+    <StudioGraphic />
+  </div>
+</section>

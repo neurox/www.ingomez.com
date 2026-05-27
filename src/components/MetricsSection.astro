@@ -1,0 +1,21 @@
+---
+import { t } from '../i18n/translations';
+
+const locale = Astro.currentLocale as 'en' | 'es';
+---
+
+<section id="differentiators" class="py-16 border-t-4 border-brand-orange">
+  <div class="mb-10">
+    <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">{t('differentiators.sectionTitle', locale)}</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {[0, 1, 2].map(i => (
+      <article class="card-outline">
+        <span class="font-display text-5xl font-bold text-brand-orange">0{i + 1}</span>
+        <h3 class="mt-2 font-display text-xl font-bold uppercase tracking-tight">{t(`differentiators.items.${i}.title`, locale)}</h3>
+        <p class="mt-3 text-sm text-brand-brown/80 leading-relaxed">{t(`differentiators.items.${i}.desc`, locale)}</p>
+      </article>
+    ))}
+  </div>
+</section>
