@@ -1,0 +1,21 @@
+---
+export interface Props {
+  variant?: 'dark' | 'light';
+}
+
+const { variant = 'dark' } = Astro.props;
+const primary = variant === 'light' ? '#f4ebe1' : '#0c1b2f';
+---
+
+<svg
+  viewBox="0 0 100 100"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-label="INGOMEZ"
+  class="w-full h-full"
+>
+  <!-- Solid "I" with top and bottom bars -->
+  <rect x="18" y="0" width="64" height="14" rx="4" fill={primary} />
+  <rect x="38" y="14" width="24" height="72" rx="4" fill={primary} />
+  <rect x="18" y="86" width="64" height="14" rx="4" fill={primary} />
+</svg>

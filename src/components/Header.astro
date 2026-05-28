@@ -1,5 +1,6 @@
 ---
 import { t } from '../i18n/translations';
+import LogoSVG from './LogoSVG.astro';
 
 const locale = Astro.currentLocale as 'en' | 'es';
 const homeUrl = locale === 'es' ? '/' : '/en/';
@@ -15,7 +16,9 @@ const navItems = [
 <header class="sticky top-0 z-20 bg-brand-bg/95 backdrop-blur-sm border-b-4 border-brand-navy">
   <div class="flex items-center justify-between gap-4 min-h-[72px]">
     <a class="flex items-center gap-3 font-display text-2xl font-bold uppercase tracking-tight text-brand-navy" href={homeUrl}>
-      <span class="inline-grid place-items-center w-10 h-10 rounded-lg bg-brand-navy text-brand-bg text-sm">I</span>
+      <span class="inline-grid place-items-center w-10 h-10 rounded-lg bg-brand-navy">
+          <LogoSVG variant="light" />
+        </span>
       INGOMEZ
     </a>
 
