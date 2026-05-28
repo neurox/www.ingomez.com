@@ -1,0 +1,13 @@
+<svg
+  viewBox="0 0 100 100"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <mask id="i">
+    <rect x="0" y="0" width="100" height="100" fill="white" />
+    <rect x="18" y="6" width="64" height="14" rx="4" fill="black" />
+    <rect x="38" y="20" width="24" height="60" rx="4" fill="black" />
+    <rect x="18" y="80" width="64" height="14" rx="4" fill="black" />
+  </mask>
+  <rect x="0" y="0" width="100" height="100" fill="#a03e1e" mask="url(#i)" />
+</svg>
