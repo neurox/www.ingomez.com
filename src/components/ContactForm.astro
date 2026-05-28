@@ -9,6 +9,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
 <form
   id="contact-form"
   class="grid gap-5"
+  onsubmit="return false"
 >
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
     <label class="flex flex-col gap-1.5">
@@ -18,8 +19,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
       <input
         type="text"
         id="form-name"
-        name="name"
-        required
+               required
         class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors"
         placeholder={locale === 'es' ? 'Tu nombre' : 'Your name'}
       />
@@ -31,8 +31,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
       <input
         type="email"
         id="form-email"
-        name="email"
-        required
+               required
         class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors"
         placeholder="email@ejemplo.com"
       />
@@ -45,8 +44,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
     <input
       type="text"
       id="form-company"
-      name="company"
-      class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors"
+           class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors"
       placeholder={locale === 'es' ? 'Nombre de tu empresa' : 'Company name'}
     />
   </label>
@@ -56,8 +54,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
     </span>
     <textarea
       id="form-message"
-      name="message"
-      rows="4"
+           rows="4"
       required
       class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors resize-none"
       placeholder={locale === 'es' ? 'Cuéntanos sobre tu proyecto, necesidades o desafíos...' : 'Tell us about your project, needs, or challenges...'}
@@ -73,7 +70,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
   </noscript>
 
   <button
-    type="submit"
+    type="button"
     class="btn-primary font-bold text-sm w-full sm:w-auto"
     id="submit-btn"
   >
@@ -85,6 +82,8 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
       ? 'Protegido por reCAPTCHA. Tus datos se tratan de forma segura.'
       : 'Protected by reCAPTCHA. Your data is handled securely.'}
   </p>
+
+  <div id="form-feedback" class="hidden mt-4 p-4 rounded-lg text-sm font-medium"></div>
 </form>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -98,6 +97,11 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
     box-shadow: 0 0 30px rgba(200, 115, 80, 0.1) !important;
     border-radius: 12px !important;
   }
+  .swal2-toast {
+    background: #0c1b2f !important;
+    border: 1px solid rgba(200, 115, 80, 0.25) !important;
+    box-shadow: 0 0 20px rgba(200, 115, 80, 0.15) !important;
+  }
   .swal2-title {
     color: #f4ebe1 !important;
     font-family: 'Inter', sans-serif !important;
@@ -105,6 +109,9 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
     font-size: 1.25rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
+  }
+  .swal2-toast .swal2-title {
+    font-size: 0.95rem !important;
   }
   .swal2-html-container {
     color: #f4ebe1 !important;
@@ -135,83 +142,128 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
   .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
     background-color: #c87350 !important;
   }
+
+  #form-feedback.success {
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    color: #bbf7d0;
+  }
+  #form-feedback.error {
+    background: rgba(200, 115, 80, 0.15);
+    border: 1px solid rgba(200, 115, 80, 0.35);
+    color: #fecaca;
+  }
 </style>
 
 <script define:vars={{ formsubmitHash }}>
-  const form = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const originalText = submitBtn?.textContent || '';
-
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const recaptchaResponse = grecaptcha.getResponse();
-    if (!recaptchaResponse) {
-      Swal.fire({
-        icon: 'error',
-        title: document.documentElement.lang === 'es-MX' ? 'Verificación requerida' : 'Verification required',
-        text: document.documentElement.lang === 'es-MX'
-          ? 'Por favor completa el reCAPTCHA.'
-          : 'Please complete the reCAPTCHA.',
-        confirmButtonText: 'OK'
-      });
-      return;
-    }
-
-    if (!submitBtn) return;
-    const sendingText = document.documentElement.lang === 'es-MX' ? 'Enviando...' : 'Sending...';
-    submitBtn.textContent = sendingText;
-    (submitBtn as HTMLButtonElement).disabled = true;
-
-    const formData = {
-      name: (document.getElementById('form-name') as HTMLInputElement).value,
-      email: (document.getElementById('form-email') as HTMLInputElement).value,
-      company: (document.getElementById('form-company') as HTMLInputElement).value,
-      message: (document.getElementById('form-message') as HTMLTextAreaElement).value,
-      'g-recaptcha-response': recaptchaResponse,
-      _subject: document.documentElement.lang === 'es-MX'
-        ? 'Nuevo mensaje de INGOMEZ'
-        : 'New message from INGOMEZ',
+  document.addEventListener('DOMContentLoaded', function () {
+    var isEs = document.documentElement.lang === 'es-MX';
+    var toastConfig = {
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timerProgressBar: true,
     };
 
-    try {
-      const res = await fetch('https://formsubmit.co/ajax/' + formsubmitHash, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
+    var form = document.getElementById('contact-form');
+    var submitBtn = document.getElementById('submit-btn');
+    var feedback = document.getElementById('form-feedback');
+    if (!form || !submitBtn || !feedback) return;
 
-      const result = await res.json();
+    var originalText = submitBtn.textContent || '';
+    var submitting = false;
+    var feedbackTimer = null;
 
-      if (result.success === 'true' || res.ok) {
+    function showFeedback(type, title, text, timer) {
+      if (feedbackTimer) clearTimeout(feedbackTimer);
+      feedback.className = 'mt-4 p-4 rounded-lg text-sm font-medium ' + type;
+      feedback.innerHTML = '<strong>' + title + '</strong><br>' + text;
+      feedback.classList.remove('hidden');
+      feedbackTimer = setTimeout(function () { feedback.classList.add('hidden'); }, timer);
+
+      try {
         Swal.fire({
-          icon: 'success',
-          title: document.documentElement.lang === 'es-MX' ? 'Mensaje enviado' : 'Message sent',
-          text: document.documentElement.lang === 'es-MX'
-            ? 'Gracias. Te responderemos pronto.'
-            : 'Thanks! We\'ll get back to you soon.',
-          confirmButtonText: document.documentElement.lang === 'es-MX' ? 'Entendido' : 'Got it'
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          icon: type,
+          title: title,
+          text: text,
+          timer: timer,
         });
-        form!.reset();
-        grecaptcha.reset();
-      } else {
-        throw new Error('FormSubmit error');
-      }
-    } catch (err) {
-      Swal.fire({
-        icon: 'error',
-        title: document.documentElement.lang === 'es-MX' ? 'Error de conexión' : 'Connection error',
-        text: document.documentElement.lang === 'es-MX'
-          ? 'Algo salió mal. Escríbenos directamente a hello@ingomez.com.'
-          : 'Something went wrong. Email us directly at hello@ingomez.com.',
-        confirmButtonText: 'OK'
-      });
-    } finally {
-      submitBtn.textContent = originalText;
-      (submitBtn as HTMLButtonElement).disabled = false;
+      } catch (_) {}
     }
+
+    async function submitForm() {
+      if (submitting) return;
+
+      var recaptchaResponse = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : '';
+      if (!recaptchaResponse) {
+        showFeedback(
+          'error',
+          isEs ? 'Verificación requerida' : 'Verification required',
+          isEs ? 'Por favor completa el reCAPTCHA.' : 'Please complete the reCAPTCHA.',
+          5000
+        );
+        return;
+      }
+
+      submitting = true;
+      submitBtn.textContent = isEs ? 'Enviando...' : 'Sending...';
+      submitBtn.disabled = true;
+
+      var formData = {
+        name: document.getElementById('form-name').value,
+        email: document.getElementById('form-email').value,
+        company: document.getElementById('form-company').value,
+        message: document.getElementById('form-message').value,
+        'g-recaptcha-response': recaptchaResponse,
+        _subject: isEs ? 'Nuevo mensaje de INGOMEZ' : 'New message from INGOMEZ',
+      };
+
+      try {
+        var res = await fetch('https://formsubmit.co/ajax/' + formsubmitHash, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        var result = await res.json();
+
+        if (result.success === 'true' || result.success === true || res.ok) {
+          showFeedback(
+            'success',
+            isEs ? 'Mensaje enviado' : 'Message sent',
+            isEs ? 'Gracias. Te responderemos pronto.' : "Thanks! We'll get back to you soon.",
+            5000
+          );
+          form.reset();
+          grecaptcha.reset();
+        } else {
+          throw new Error('FormSubmit error');
+        }
+      } catch (err) {
+        showFeedback(
+          'error',
+          isEs ? 'Error de conexión' : 'Connection error',
+          isEs ? 'Algo salió mal. Escríbenos directamente a juanjose@ingomez.com.' : 'Something went wrong. Email us directly at juanjose@ingomez.com.',
+          8000
+        );
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        submitting = false;
+      }
+    }
+
+    submitBtn.addEventListener('click', submitForm);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitForm();
+    });
   });
 </script>
