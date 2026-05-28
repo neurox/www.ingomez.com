@@ -18,7 +18,7 @@ const locale = Astro.currentLocale as 'en' | 'es';
           {t(`process.phases.${i}.number`, locale)}
         </span>
         <h3 class="font-display text-xl font-bold uppercase tracking-tight">{t(`process.phases.${i}.title`, locale)}</h3>
-        <p class="mt-3 text-brand-brown/80 leading-relaxed">{t(`process.phases.${i}.desc`, locale)}</p>
+        <p class="mt-3 text-brand-brown leading-relaxed">{t(`process.phases.${i}.desc`, locale)}</p>
       </article>
     ))}
   </div>

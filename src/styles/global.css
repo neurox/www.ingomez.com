@@ -4,13 +4,19 @@
 @theme {
   --color-brand-bg: #f4ebe1;
   --color-brand-navy: #0c1b2f;
-  --color-brand-orange: #b4532b;
-  --color-brand-brown: #8b6d53;
+  --color-brand-orange: #a03e1e;
+  --color-brand-orange-light: #c87350;
+  --color-brand-brown: #6e503a;
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Oswald', sans-serif;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+
   body {
     @apply bg-brand-bg text-brand-navy font-sans antialiased;
   }

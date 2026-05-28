@@ -42,10 +42,10 @@ const homeUrl = locale === 'es' ? '/' : '/en/';
         </div>
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-8 pt-6 border-t border-brand-navy/10 text-xs text-brand-brown/70">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-8 pt-6 border-t border-brand-navy/10 text-xs text-brand-brown">
       <div set:html={t('footer.copyright', locale)} />
       <div>
-        <a href={homeUrl} class="hover:text-brand-navy transition-colors">{t('footer.home', locale)}</a>
+        <a href="#" class="hover:text-brand-navy transition-colors">{locale === 'es' ? 'Ir arriba' : 'Go to top'}</a>
       </div>
     </div>
   </div>

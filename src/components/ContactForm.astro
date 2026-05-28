@@ -12,54 +12,54 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
 >
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
     <label class="flex flex-col gap-1.5">
-      <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">
-        {t('form.name', locale)} <span class="text-brand-bg/40">*</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-brand-orange-light">
+        {t('form.name', locale)} <span class="text-brand-bg/50">*</span>
       </span>
       <input
         type="text"
         id="form-name"
         name="name"
         required
-        class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/30 focus:outline-none focus:border-brand-orange transition-colors"
+        class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors"
         placeholder={locale === 'es' ? 'Tu nombre' : 'Your name'}
       />
     </label>
     <label class="flex flex-col gap-1.5">
-      <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">
-        {t('form.email', locale)} <span class="text-brand-bg/40">*</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-brand-orange-light">
+        {t('form.email', locale)} <span class="text-brand-bg/50">*</span>
       </span>
       <input
         type="email"
         id="form-email"
         name="email"
         required
-        class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/30 focus:outline-none focus:border-brand-orange transition-colors"
+        class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors"
         placeholder="email@ejemplo.com"
       />
     </label>
   </div>
   <label class="flex flex-col gap-1.5">
-    <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">
-      {t('form.company', locale)} <span class="text-brand-bg/40">(opcional)</span>
+    <span class="text-xs font-bold uppercase tracking-widest text-brand-orange-light">
+      {t('form.company', locale)} <span class="text-brand-bg/50">(opcional)</span>
     </span>
     <input
       type="text"
       id="form-company"
       name="company"
-      class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/30 focus:outline-none focus:border-brand-orange transition-colors"
+      class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors"
       placeholder={locale === 'es' ? 'Nombre de tu empresa' : 'Company name'}
     />
   </label>
   <label class="flex flex-col gap-1.5">
-    <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">
-      {t('form.message', locale)} <span class="text-brand-bg/40">*</span>
+    <span class="text-xs font-bold uppercase tracking-widest text-brand-orange-light">
+      {t('form.message', locale)} <span class="text-brand-bg/50">*</span>
     </span>
     <textarea
       id="form-message"
       name="message"
       rows="4"
       required
-      class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/30 focus:outline-none focus:border-brand-orange transition-colors resize-none"
+      class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors resize-none"
       placeholder={locale === 'es' ? 'Cuéntanos sobre tu proyecto, necesidades o desafíos...' : 'Tell us about your project, needs, or challenges...'}
     ></textarea>
   </label>
@@ -80,7 +80,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
     {t('form.submit', locale)}
   </button>
 
-  <p class="text-xs text-brand-bg/30 mt-2">
+  <p class="text-xs text-brand-bg/50 mt-2">
     {locale === 'es'
       ? 'Protegido por reCAPTCHA. Tus datos se tratan de forma segura.'
       : 'Protected by reCAPTCHA. Your data is handled securely.'}
@@ -94,8 +94,8 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
 <style>
   .swal2-popup {
     background: #0c1b2f !important;
-    border: 1px solid rgba(180, 83, 43, 0.25) !important;
-    box-shadow: 0 0 30px rgba(180, 83, 43, 0.1) !important;
+    border: 1px solid rgba(200, 115, 80, 0.25) !important;
+    box-shadow: 0 0 30px rgba(200, 115, 80, 0.1) !important;
     border-radius: 12px !important;
   }
   .swal2-title {
@@ -111,7 +111,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
     opacity: 0.7 !important;
   }
   .swal2-confirm {
-    background-color: #b4532b !important;
+    background-color: #c87350 !important;
     color: #f4ebe1 !important;
     font-weight: 700 !important;
     border-radius: 9999px !important;
@@ -119,21 +119,21 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
     font-size: 0.875rem !important;
   }
   .swal2-icon.swal2-success {
-    border-color: #b4532b !important;
-    color: #b4532b !important;
+    border-color: #c87350 !important;
+    color: #c87350 !important;
   }
   .swal2-icon.swal2-success [class^='swal2-success-line'] {
-    background-color: #b4532b !important;
+    background-color: #c87350 !important;
   }
   .swal2-icon.swal2-success .swal2-success-ring {
-    border-color: rgba(180, 83, 43, 0.3) !important;
+    border-color: rgba(200, 115, 80, 0.3) !important;
   }
   .swal2-icon.swal2-error {
-    border-color: #b4532b !important;
-    color: #b4532b !important;
+    border-color: #c87350 !important;
+    color: #c87350 !important;
   }
   .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
-    background-color: #b4532b !important;
+    background-color: #c87350 !important;
   }
 </style>
 

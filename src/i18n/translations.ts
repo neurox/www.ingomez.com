@@ -38,6 +38,7 @@ const strings = {
   },
 
   differentiators: {
+    label: { en: 'Our differentiators', es: 'Nuestros diferenciadores' },
     sectionTitle: { en: 'Why INGOMEZ', es: 'Por qué INGOMEZ' },
     items: [
       {
@@ -182,8 +183,8 @@ const strings = {
   about: {
     label: { en: 'About', es: 'Nosotros' },
     title: {
-      en: 'INGOMEZ is a web + AI studio based in Morelos, Mexico.',
-      es: 'INGOMEZ es un estudio de web + IA basado en Morelos, México.',
+      en: 'We are a web + AI studio based in Morelos, Mexico.',
+      es: 'Somos un estudio de web + IA en Morelos, México.',
     },
     copy1: {
       en: 'Founded by Juan Gómez, a software engineer with deep experience in web architecture, DevOps, and platform engineering. After years of building digital products for others, I started INGOMEZ to bring that same technical rigor to Mexican businesses.',
