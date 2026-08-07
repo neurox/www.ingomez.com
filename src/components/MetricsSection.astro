@@ -4,7 +4,7 @@ import { t } from '../i18n/translations';
 const locale = Astro.currentLocale as 'en' | 'es';
 ---
 
-<section id="differentiators" class="py-16 border-t-4 border-brand-orange">
+<section id="differentiators" class="py-16 border-t border-brand-dark">
   <div class="mb-10">
     <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">{t('differentiators.label', locale)}</span>
     <h2 class="mt-2 font-display text-4xl sm:text-5xl font-bold uppercase leading-none tracking-tight text-brand-navy">
@@ -15,8 +15,35 @@ const locale = Astro.currentLocale as 'en' | 'es';
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     {[0, 1, 2].map(i => (
       <article class="card-outline">
-        <span class="font-display text-5xl font-bold text-brand-orange">0{i + 1}</span>
-        <h3 class="mt-2 font-display text-xl font-bold uppercase tracking-tight">{t(`differentiators.items.${i}.title`, locale)}</h3>
+        <div class="flex justify-between items-start">
+          <span class="font-display text-5xl font-bold text-brand-orange">0{i + 1}</span>
+          {i === 0 && (
+            <svg class="tech-icon" viewBox="0 0 40 40" fill="none" stroke="#00e5ff" stroke-width="1.5">
+              <polygon points="20,4 36,36 4,36" />
+              <line x1="20" y1="16" x2="20" y2="26" />
+              <circle cx="20" cy="30" r="1.5" fill="#00e5ff" />
+            </svg>
+          )}
+          {i === 1 && (
+            <svg class="tech-icon" viewBox="0 0 40 40" fill="none" stroke="#00e5ff" stroke-width="1.5">
+              <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" />
+              <circle cx="20" cy="20" r="6" />
+              <circle cx="20" cy="20" r="2" fill="#00e5ff" />
+              <line x1="20" y1="8" x2="20" y2="14" />
+              <line x1="20" y1="26" x2="20" y2="32" />
+              <line x1="8" y1="14" x2="14" y2="17" />
+              <line x1="26" y1="23" x2="32" y2="26" />
+            </svg>
+          )}
+          {i === 2 && (
+            <svg class="tech-icon" viewBox="0 0 40 40" fill="none" stroke="#00e5ff" stroke-width="1.5">
+              <polygon points="20,2 28,14 38,14 30,24 33,38 20,30 7,38 10,24 2,14 12,14" />
+              <circle cx="20" cy="20" r="5" />
+              <circle cx="20" cy="20" r="2" fill="#00e5ff" />
+            </svg>
+          )}
+        </div>
+        <h3 class="mt-4 font-display text-xl font-bold uppercase tracking-tight">{t(`differentiators.items.${i}.title`, locale)}</h3>
         <p class="mt-3 text-sm text-brand-brown leading-relaxed">{t(`differentiators.items.${i}.desc`, locale)}</p>
       </article>
     ))}

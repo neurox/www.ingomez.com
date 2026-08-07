@@ -2,11 +2,13 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-brand-bg: #f4ebe1;
-  --color-brand-navy: #0c1b2f;
-  --color-brand-orange: #a03e1e;
-  --color-brand-orange-light: #c87350;
-  --color-brand-brown: #6e503a;
+  --color-brand-bg: #0a0b10;
+  --color-brand-navy: #f0f4f8;
+  --color-brand-orange: #00e5ff;
+  --color-brand-orange-light: #00e5ff;
+  --color-brand-brown: #d1d5db;
+  --color-brand-dark: #1a1b25;
+  --color-brand-glow: #00e5ff;
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Oswald', sans-serif;
 }
@@ -19,27 +21,51 @@
 
   body {
     @apply bg-brand-bg text-brand-navy font-sans antialiased;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display uppercase tracking-tight;
+    text-shadow: 0 0 20px rgba(0,229,255,0.3);
   }
 }
 
 @layer components {
   .thick-divider {
-    @apply border-t-4 border-brand-orange w-11/12 my-6;
+    @apply border-t border-brand-dark w-11/12 my-6;
   }
 
   .btn-primary {
-    @apply bg-brand-orange text-brand-bg px-6 py-2 rounded-full font-medium transition-all hover:bg-brand-orange-light active:scale-95 inline-flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100;
+    @apply bg-brand-orange text-brand-bg px-6 py-2 rounded-full font-medium transition-all active:scale-95 inline-flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100;
+    box-shadow: 0 0 15px rgba(0,229,255,0.4);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 25px rgba(0,229,255,0.6);
   }
 
   .card-outline {
-    @apply border border-brand-navy rounded-xl p-6 bg-brand-bg;
+    @apply border border-brand-dark rounded-xl p-6 bg-brand-dark transition-all duration-300;
+    box-shadow: 0 0 8px rgba(0,229,255,0.08);
+  }
+  .card-outline:hover {
+    border-color: rgba(0,229,255,0.4);
+    box-shadow: 0 0 20px rgba(0,229,255,0.2);
   }
 
   .card-dark {
-    @apply bg-brand-navy text-brand-bg rounded-2xl p-8;
+    @apply bg-brand-bg text-brand-navy rounded-2xl p-8 border border-brand-orange/20;
+    box-shadow: 0 0 20px rgba(0,229,255,0.1);
+  }
+
+  .tech-icon {
+    @apply w-10 h-10 mt-1;
+  }
+
+  .glow-line {
+    @apply h-px bg-brand-orange/30;
+    box-shadow: 0 0 8px rgba(0,229,255,0.3);
   }
 }

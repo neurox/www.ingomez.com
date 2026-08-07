@@ -20,7 +20,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
         type="text"
         id="form-name"
                required
-        class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors"
+        class="bg-transparent border-b-2 border-brand-dark px-4 py-2.5 text-brand-navy placeholder:text-brand-brown/50 focus:outline-none focus:border-brand-orange transition-colors rounded-none"
         placeholder={locale === 'es' ? 'Tu nombre' : 'Your name'}
       />
     </label>
@@ -32,7 +32,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
         type="email"
         id="form-email"
                required
-        class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors"
+        class="bg-transparent border-b-2 border-brand-dark px-4 py-2.5 text-brand-navy placeholder:text-brand-brown/50 focus:outline-none focus:border-brand-orange transition-colors rounded-none"
         placeholder="email@ejemplo.com"
       />
     </label>
@@ -44,7 +44,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
     <input
       type="text"
       id="form-company"
-           class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors"
+           class="bg-transparent border-b-2 border-brand-dark px-4 py-2.5 text-brand-navy placeholder:text-brand-brown/50 focus:outline-none focus:border-brand-orange transition-colors rounded-none"
       placeholder={locale === 'es' ? 'Nombre de tu empresa' : 'Company name'}
     />
   </label>
@@ -56,7 +56,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
       id="form-message"
            rows="4"
       required
-      class="bg-brand-bg/10 border border-brand-bg/20 rounded-lg px-4 py-2.5 text-brand-bg placeholder:text-brand-bg/50 focus:outline-none focus:border-brand-orange transition-colors resize-none"
+      class="bg-transparent border-b-2 border-brand-dark px-4 py-2.5 text-brand-navy placeholder:text-brand-brown/50 focus:outline-none focus:border-brand-orange transition-colors rounded-none resize-none"
       placeholder={locale === 'es' ? 'Cuéntanos sobre tu proyecto, necesidades o desafíos...' : 'Tell us about your project, needs, or challenges...'}
     ></textarea>
   </label>
@@ -92,18 +92,18 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
 
 <style>
   .swal2-popup {
-    background: #0c1b2f !important;
-    border: 1px solid rgba(200, 115, 80, 0.25) !important;
-    box-shadow: 0 0 30px rgba(200, 115, 80, 0.1) !important;
+    background: #0a0b10 !important;
+    border: 1px solid rgba(0, 229, 255, 0.25) !important;
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.1) !important;
     border-radius: 12px !important;
   }
   .swal2-toast {
-    background: #0c1b2f !important;
-    border: 1px solid rgba(200, 115, 80, 0.25) !important;
-    box-shadow: 0 0 20px rgba(200, 115, 80, 0.15) !important;
+    background: #0a0b10 !important;
+    border: 1px solid rgba(0, 229, 255, 0.25) !important;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.15) !important;
   }
   .swal2-title {
-    color: #f4ebe1 !important;
+    color: #f0f4f8 !important;
     font-family: 'Inter', sans-serif !important;
     font-weight: 700 !important;
     font-size: 1.25rem !important;
@@ -114,33 +114,33 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
     font-size: 0.95rem !important;
   }
   .swal2-html-container {
-    color: #f4ebe1 !important;
+    color: #f0f4f8 !important;
     opacity: 0.7 !important;
   }
   .swal2-confirm {
-    background-color: #c87350 !important;
-    color: #f4ebe1 !important;
+    background-color: #00e5ff !important;
+    color: #f0f4f8 !important;
     font-weight: 700 !important;
     border-radius: 9999px !important;
     padding: 10px 24px !important;
     font-size: 0.875rem !important;
   }
   .swal2-icon.swal2-success {
-    border-color: #c87350 !important;
-    color: #c87350 !important;
+    border-color: #00e5ff !important;
+    color: #00e5ff !important;
   }
   .swal2-icon.swal2-success [class^='swal2-success-line'] {
-    background-color: #c87350 !important;
+    background-color: #00e5ff !important;
   }
   .swal2-icon.swal2-success .swal2-success-ring {
-    border-color: rgba(200, 115, 80, 0.3) !important;
+    border-color: rgba(0, 229, 255, 0.3) !important;
   }
   .swal2-icon.swal2-error {
-    border-color: #c87350 !important;
-    color: #c87350 !important;
+    border-color: #00e5ff !important;
+    color: #00e5ff !important;
   }
   .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
-    background-color: #c87350 !important;
+    background-color: #00e5ff !important;
   }
 
   #form-feedback.success {

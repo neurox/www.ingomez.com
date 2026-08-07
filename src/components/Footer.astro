@@ -6,7 +6,7 @@ const locale = Astro.currentLocale as 'en' | 'es';
 const homeUrl = locale === 'es' ? '/' : '/en/';
 ---
 
-<footer class="border-t-4 border-brand-orange">
+<footer class="border-t border-brand-dark">
   <div class="py-12">
     <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-8">
       <div>
@@ -23,32 +23,32 @@ const homeUrl = locale === 'es' ? '/' : '/en/';
       <div>
         <h2 class="text-sm font-display font-bold uppercase tracking-widest text-brand-orange mb-4">{t('footer.services', locale)}</h2>
         <div class="flex flex-col gap-2">
-          <a href={`${homeUrl}#services`} class="text-sm text-brand-brown hover:text-brand-navy transition-colors">{t('footer.webPlatforms', locale)}</a>
-          <a href={`${homeUrl}#services`} class="text-sm text-brand-brown hover:text-brand-navy transition-colors">{t('footer.aiIntegration', locale)}</a>
-          <a href={`${homeUrl}#services`} class="text-sm text-brand-brown hover:text-brand-navy transition-colors">{t('footer.automation', locale)}</a>
-          <a href={`${homeUrl}#services`} class="text-sm text-brand-brown hover:text-brand-navy transition-colors">{t('footer.consulting', locale)}</a>
+          <a href={`${homeUrl}#services`} class="text-sm text-brand-brown hover:text-brand-orange transition-colors">{t('footer.webPlatforms', locale)}</a>
+          <a href={`${homeUrl}#services`} class="text-sm text-brand-brown hover:text-brand-orange transition-colors">{t('footer.aiIntegration', locale)}</a>
+          <a href={`${homeUrl}#services`} class="text-sm text-brand-brown hover:text-brand-orange transition-colors">{t('footer.automation', locale)}</a>
+          <a href={`${homeUrl}#services`} class="text-sm text-brand-brown hover:text-brand-orange transition-colors">{t('footer.consulting', locale)}</a>
         </div>
       </div>
       <div>
         <h2 class="text-sm font-display font-bold uppercase tracking-widest text-brand-orange mb-4">{t('footer.company', locale)}</h2>
         <div class="flex flex-col gap-2">
-          <a href={`${homeUrl}#process`} class="text-sm text-brand-brown hover:text-brand-navy transition-colors">{t('footer.process', locale)}</a>
-          <a href={`${homeUrl}#model`} class="text-sm text-brand-brown hover:text-brand-navy transition-colors">{t('footer.about', locale)}</a>
+          <a href={`${homeUrl}#process`} class="text-sm text-brand-brown hover:text-brand-orange transition-colors">{t('footer.process', locale)}</a>
+          <a href={`${homeUrl}#model`} class="text-sm text-brand-brown hover:text-brand-orange transition-colors">{t('footer.about', locale)}</a>
         </div>
       </div>
       <div>
         <h2 class="text-sm font-display font-bold uppercase tracking-widest text-brand-orange mb-4">{t('footer.contact', locale)}</h2>
         <div class="flex flex-col gap-2">
-          <a href="mailto:juanjose@ingomez.com" class="text-sm text-brand-brown hover:text-brand-navy transition-colors">juanjose@ingomez.com</a>
+          <a href="mailto:juanjose@ingomez.com" class="text-sm text-brand-brown hover:text-brand-orange transition-colors">juanjose@ingomez.com</a>
           <span class="text-sm text-brand-brown">Cuernavaca, Morelos</span>
-          <a href="https://www.juaning.dev" target="_blank" rel="noreferrer" class="text-sm text-brand-brown hover:text-brand-navy transition-colors">juaning.dev</a>
+          <a href="https://www.juaning.dev" target="_blank" rel="noreferrer" class="text-sm text-brand-brown hover:text-brand-orange transition-colors">juaning.dev</a>
         </div>
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-8 pt-6 border-t border-brand-navy/10 text-xs text-brand-brown">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-8 pt-6 border-t border-brand-dark text-xs text-brand-brown">
       <div set:html={t('footer.copyright', locale)} />
       <div>
-        <a href="#" class="hover:text-brand-navy transition-colors">{locale === 'es' ? 'Ir arriba' : 'Go to top'}</a>
+        <a href="#" class="hover:text-brand-orange transition-colors">{locale === 'es' ? 'Ir arriba' : 'Go to top'}</a>
       </div>
     </div>
   </div>
