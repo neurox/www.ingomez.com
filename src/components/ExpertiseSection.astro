@@ -1,73 +1,47 @@
 ---
 import { t } from '../i18n/translations';
-
 const locale = Astro.currentLocale as 'en' | 'es';
+const es = locale === 'es';
+const copy = es ? {
+ intro:'El software empieza con una situación real.', note:'Demostraciones conceptuales · No son proyectos de clientes.',
+ title:'Una operación completa. En una sola pantalla.', desc:'Un portal a medida puede reunir pedidos, responsables y entregas. Diseñamos alrededor de las decisiones que tu equipo necesita tomar, no de una plantilla.',
+ label:'01 / PLATAFORMAS A MEDIDA', panel:'Mesa de operaciones', today:'Vista del equipo', order:'Pedido', owner:'Responsable', status:'Estado', rows:['En preparación','Revisión pendiente','Listo para entrega'],
+ ai:'Del documento a la decisión.', aid:'Extraer información es solo una parte. Diseñamos también cómo revisarla, corregirla y llevarla a tus herramientas.',
+ file:'Documento recibido', extract:'Datos extraídos', review:'Revisión humana', flow:'Menos copiar y pegar. Más continuidad.', flowd:'Conectamos los pasos que hoy dependen de un correo, una hoja de cálculo o un recordatorio.', steps:['Solicitud recibida','Registro en CRM','Aviso al equipo'],
+ consult:'Antes de construir, decidir bien.', consultd:'Revisamos arquitectura, herramientas y prioridades contigo. El resultado: una dirección técnica clara para tu siguiente paso.', cta:'Hablemos de tu caso', sample:'DATOS DE EJEMPLO'
+} : {
+ intro:'Software starts with a real situation.', note:'Concept demonstrations · Not client projects.',
+ title:'An entire operation. On one screen.', desc:'A custom portal can bring orders, owners and deliveries together. We design around the decisions your team needs to make, not a template.',
+ label:'01 / CUSTOM PLATFORMS', panel:'Operations desk', today:'Team overview', order:'Order', owner:'Owner', status:'Status', rows:['In preparation','Review pending','Ready for delivery'],
+ ai:'From document to decision.', aid:'Extracting information is only part of the work. We also design how to review it, correct it and send it to your tools.',
+ file:'Document received', extract:'Data extracted', review:'Human review', flow:'Less copying. More continuity.', flowd:'We connect the steps that currently depend on an email, a spreadsheet or a reminder.', steps:['Request received','CRM record','Team notification'],
+ consult:'Before building, decide well.', consultd:'We review architecture, tools and priorities with you. The result: a clear technical direction for your next step.', cta:'Let’s discuss your case', sample:'SAMPLE DATA'
+};
 ---
-
-<section id="services" class="py-16 border-t border-brand-dark">
-  <div class="mb-10">
-    <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">{t('services.label', locale)}</span>
-    <h2 class="mt-2 font-display text-4xl sm:text-5xl font-bold uppercase leading-none tracking-tight text-brand-navy">{t('services.title', locale)}</h2>
-    <p class="mt-4 text-brand-brown text-lg max-w-2xl">{t('services.copy', locale)}</p>
-  </div>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-    {[0, 1, 2, 3].map(i => (
-      <article class="card-outline group">
-        <div class="flex justify-between items-start">
-          <span class="font-display text-5xl font-bold text-brand-orange group-hover:text-brand-orange">
-            0{i + 1}
-          </span>
-          {i === 0 && (
-            <svg class="tech-icon" viewBox="0 0 40 40" fill="none" stroke="#00e5ff" stroke-width="1.5">
-              <rect x="4" y="8" width="32" height="6" rx="2" />
-              <rect x="8" y="18" width="24" height="6" rx="2" />
-              <rect x="12" y="28" width="16" height="6" rx="2" />
-            </svg>
-          )}
-          {i === 1 && (
-            <svg class="tech-icon" viewBox="0 0 40 40" fill="none" stroke="#00e5ff" stroke-width="1.5">
-              <rect x="8" y="8" width="24" height="24" rx="4" />
-              <circle cx="20" cy="20" r="5" />
-              <circle cx="20" cy="20" r="2" fill="#00e5ff" />
-              <line x1="8" y1="14" x2="4" y2="14" />
-              <line x1="8" y1="20" x2="4" y2="20" />
-              <line x1="8" y1="26" x2="4" y2="26" />
-              <line x1="32" y1="14" x2="36" y2="14" />
-              <line x1="32" y1="20" x2="36" y2="20" />
-              <line x1="32" y1="26" x2="36" y2="26" />
-              <line x1="14" y1="8" x2="14" y2="4" />
-              <line x1="20" y1="8" x2="20" y2="4" />
-              <line x1="26" y1="8" x2="26" y2="4" />
-              <line x1="14" y1="32" x2="14" y2="36" />
-              <line x1="20" y1="32" x2="20" y2="36" />
-              <line x1="26" y1="32" x2="26" y2="36" />
-            </svg>
-          )}
-          {i === 2 && (
-            <svg class="tech-icon" viewBox="0 0 40 40" fill="none" stroke="#00e5ff" stroke-width="1.5">
-              <circle cx="20" cy="20" r="14" />
-              <circle cx="20" cy="20" r="4" fill="#00e5ff" stroke="none" />
-              <line x1="20" y1="6" x2="20" y2="2" />
-              <line x1="20" y1="38" x2="20" y2="34" />
-              <line x1="6" y1="20" x2="2" y2="20" />
-              <line x1="38" y1="20" x2="34" y2="20" />
-              <line x1="10" y1="10" x2="7" y2="7" />
-              <line x1="33" y1="33" x2="30" y2="30" />
-              <line x1="30" y1="10" x2="33" y2="7" />
-              <line x1="7" y1="33" x2="10" y2="30" />
-            </svg>
-          )}
-          {i === 3 && (
-            <svg class="tech-icon" viewBox="0 0 40 40" fill="none" stroke="#00e5ff" stroke-width="1.5">
-              <path d="M20,4 L34,12 L34,28 L20,36 L6,28 L6,12 Z" />
-              <polyline points="14,20 18,24 26,16" stroke-width="2" />
-            </svg>
-          )}
-        </div>
-        <h3 class="mt-4 font-display text-xl font-bold uppercase tracking-tight">{t(`services.items.${i}.title`, locale)}</h3>
-        <p class="mt-2 text-sm text-brand-brown leading-relaxed group-hover:text-brand-brown">{t(`services.items.${i}.desc`, locale)}</p>
-      </article>
-    ))}
-  </div>
+<section id="services" class="workshop">
+ <div class="workshop-heading">
+  <span>{t('services.label',locale)}</span>
+  <h2>{t('services.title',locale)}</h2>
+  <p>{copy.intro}</p>
+ </div>
+ <p class="demo-note">{copy.note}</p>
+ <article class="feature-study">
+  <div class="study-copy"><span class="study-label">{copy.label}</span><h3>{copy.title}</h3><p>{copy.desc}</p><a href="#contact">{copy.cta} <span aria-hidden="true">↗</span></a></div>
+  <figure class="operations">
+   <figcaption><strong>{copy.panel}</strong><span>{copy.sample}</span></figcaption>
+   <div class="operations-heading"><span>{copy.today}</span><span aria-hidden="true">▦</span></div>
+   <table><thead><tr><th>{copy.order}</th><th>{copy.owner}</th><th>{copy.status}</th></tr></thead><tbody>{copy.rows.map((row,i)=><tr><td>ORD–00{i+1}</td><td>{['Alex','Sam','Dani'][i]}</td><td><span class:list={['order-state',{ready:i===2}]}>{row}</span></td></tr>)}</tbody></table>
+   <div class="operations-footer"><span>03 {es?'pedidos de ejemplo':'sample orders'}</span><span aria-hidden="true">← &nbsp; →</span></div>
+  </figure>
+ </article>
+ <div class="studies-pair">
+  <article class="document-study"><span class="study-label">02 / {es?'INTELIGENCIA ARTIFICIAL':'ARTIFICIAL INTELLIGENCE'}</span><h3>{copy.ai}</h3><p>{copy.aid}</p><figure class="document-flow"><div class="paper"><span>{copy.file}</span><i></i><i></i><i></i><b>PDF</b></div><span aria-hidden="true">→</span><div class="extraction"><span>{copy.extract}</span><strong>INV–0042</strong><span class="review-tag">{copy.review}</span></div></figure></article>
+  <article class="automation-study"><span class="study-label">03 / {es?'AUTOMATIZACIÓN':'AUTOMATION'}</span><h3>{copy.flow}</h3><p>{copy.flowd}</p><ol class="workflow">{copy.steps.map((step,i)=><li><span>0{i+1}</span>{step}</li>)}</ol></article>
+ </div>
+ <article class="consult-study"><span class="study-label">04 / {es?'CONSULTORÍA TÉCNICA':'TECHNICAL CONSULTING'}</span><div><h3>{copy.consult}</h3><p>{copy.consultd}</p></div><a href="#contact">{copy.cta} <span aria-hidden="true">↗</span></a></article>
 </section>
+<style>
+.workshop{color:#222d36}.workshop-heading{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;align-items:end}.workshop-heading>span{grid-column:1/-1;font-size:11px;letter-spacing:.14em;color:#365b86}.workshop-heading h2{margin:0}.workshop-heading p{font-size:19px;max-width:320px;justify-self:end;margin:0}.demo-note{font-size:12px;color:#626e77;margin:32px 0 14px}.feature-study{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;background:#eeeae3;padding:48px;align-items:center}.study-label{font-size:10px;letter-spacing:.12em;color:#526373}.workshop h3{font-size:clamp(26px,3vw,38px);line-height:1.15;letter-spacing:-.045em;margin:20px 0}.workshop article p{font-size:16px;color:#55616b;max-width:490px}.workshop a{display:inline-flex;align-items:center;gap:24px;font-size:14px;border-bottom:1px solid #8d969d;padding:10px 0;margin-top:20px}.operations{margin:0;background:#fff;box-shadow:0 18px 35px #27384a12;transform:rotate(-2deg);font-size:12px;min-width:0}.operations figcaption{display:flex;justify-content:space-between;gap:12px;background:#253c50;color:#fff;padding:20px}.operations figcaption span{font-size:8px;letter-spacing:.1em}.operations-heading{display:flex;justify-content:space-between;padding:24px 20px 14px;font-size:15px}.operations table{width:100%;border-collapse:collapse;text-align:left;font-size:11px}.operations th{font-weight:400;color:#6b7680;padding:12px}.operations td{padding:18px 12px;border-top:1px solid #edf0f2}.order-state{color:#56667b}.order-state.ready{color:#366251}.operations-footer{display:flex;justify-content:space-between;padding:16px;border-top:1px solid #edf0f2;color:#6b7680;font-size:10px}.studies-pair{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin:60px 0}.studies-pair article{border-top:1px solid #b8c3cc;padding-top:24px}.document-flow{background:#f0f4f7;margin:28px 0 0;padding:30px;display:flex;align-items:center;justify-content:center;gap:20px;min-height:205px;font-size:11px}.paper{background:white;padding:16px;width:140px;box-shadow:3px 4px 0 #dce4eb}.paper i{display:block;height:3px;background:#d3dce5;margin-top:12px}.paper i:nth-last-child(2){width:65%}.paper b{display:block;margin-top:12px;font-size:9px;color:#687c8f}.extraction{display:flex;flex-direction:column;gap:14px}.extraction strong{font-size:18px;font-weight:500}.review-tag{font-size:10px;border-bottom:1px solid #80976b;padding-bottom:6px}.workflow{list-style:none;margin:28px 0 0;padding:0}.workflow li{display:flex;align-items:center;gap:18px;border-bottom:1px solid #dce4ec;padding:15px 0;font-size:14px}.workflow li span{display:grid;place-items:center;width:30px;height:30px;background:#e8eef3;font-size:10px}.consult-study{display:grid;grid-template-columns:.65fr 1.5fr auto;gap:32px;align-items:start;border-top:1px solid #b8c3cc;padding-top:32px}.consult-study h3{margin-top:0;font-size:28px}.consult-study a{white-space:nowrap;margin:0}
+@media(max-width:900px){.feature-study{gap:28px;padding:28px}.studies-pair{gap:28px}.consult-study{grid-template-columns:1fr 2fr}.consult-study a{grid-column:2;justify-self:start}.operations{transform:none}}
+@media(max-width:600px){.workshop-heading,.feature-study,.studies-pair,.consult-study{grid-template-columns:1fr}.workshop-heading p{justify-self:start;margin-top:18px}.feature-study{padding:24px 18px;margin-inline:-8px}.operations td,.operations th{padding:12px 7px}.operations figcaption{padding:16px 10px}.studies-pair{margin:36px 0;gap:36px}.consult-study a{grid-column:1}.document-flow{padding:24px 16px;gap:12px}}
+</style>

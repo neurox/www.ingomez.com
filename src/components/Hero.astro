@@ -1,30 +1,21 @@
 ---
 import { t } from '../i18n/translations';
 import StudioGraphic from './StudioGraphic.astro';
-
 const locale = Astro.currentLocale as 'en' | 'es';
 ---
-
-<section class="pt-12 pb-16">
-  <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 items-center">
-    <div>
-      <span class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 border border-brand-orange rounded-full text-xs font-bold uppercase tracking-widest text-brand-orange">
-        <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
-        {t('hero.eyebrow', locale)}
-      </span>
-      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold uppercase leading-none tracking-tight text-brand-navy" set:html={t('hero.title', locale)} />
-      <p class="mt-6 text-brand-brown text-lg leading-relaxed max-w-lg">
-        {t('hero.copy', locale)}
-      </p>
-      <div class="flex flex-wrap gap-3 mt-8">
-        <a class="btn-primary font-bold text-sm" href="#services">
-          {t('hero.servicesLink', locale)}
-        </a>
-        <a class="px-6 py-2 rounded-full border border-brand-orange text-brand-navy font-bold text-sm hover:bg-brand-orange hover:text-brand-bg transition-colors" href="#process">
-          {t('hero.modelLink', locale)}
-        </a>
+<section class="hero hero-engineering">
+  <div class="hero-index"><span>INGOMEZ — {locale === 'es' ? 'ESTUDIO INDEPENDIENTE' : 'INDEPENDENT STUDIO'}</span><span>{locale === 'es' ? 'DESDE MÉXICO / PARA EL MUNDO' : 'FROM MEXICO / WORLDWIDE'}</span></div>
+  <div class="hero-layout">
+    <div class="hero-editorial">
+      <span class="eyebrow">{locale === 'es' ? 'La diferencia está en cómo nos conectamos.' : 'The difference is how we connect.'}</span>
+      <h1>{locale === 'es' ? 'Distintas' : 'Different'}<br />{locale === 'es' ? 'mentes.' : 'minds.'}<br /><em>{locale === 'es' ? 'Software que' : 'Software that'}<br />{locale === 'es' ? 'funciona.' : 'works.'}</em></h1>
+      <p class="hero-copy">{locale === 'es' ? 'Diseñamos software a medida para negocios que necesitan conectar herramientas, reducir tareas manuales o crear un nuevo servicio digital. Unimos diseño e ingeniería para resolverlo contigo.' : 'We design custom software for businesses that need to connect tools, reduce manual work or create a new digital service. We bring design and engineering together to solve it with you.'}</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#contact">{t('header.getQuote', locale)} <span class="ml-5" aria-hidden="true">↗</span></a>
+        <a class="text-link" href="#services">{t('hero.servicesLink', locale)} <span aria-hidden="true">↓</span></a>
       </div>
     </div>
     <StudioGraphic />
   </div>
+  <div class="hero-discipline"><span>01 / {locale === 'es' ? 'DISEÑO' : 'DESIGN'}</span><span>02 / SOFTWARE</span><span>03 / {locale === 'es' ? 'INTELIGENCIA ARTIFICIAL' : 'ARTIFICIAL INTELLIGENCE'}</span><span>04 / {locale === 'es' ? 'AUTOMATIZACIÓN' : 'AUTOMATION'}</span></div>
 </section>

@@ -12,13 +12,16 @@ interface Props {
 const locale = Astro.currentLocale as 'en' | 'es';
 const siteTitle = 'INGOMEZ';
 const defaultDesc = locale === 'es'
-  ? 'Estudio de desarrollo web e integración de IA para empresas mexicanas. Plataformas a medida, automatización y consultoría técnica desde Cuernavaca, Morelos.'
-  : 'Web development and AI integration studio for Mexican businesses. Custom platforms, automation, and technical consulting from Cuernavaca, Morelos.';
+  ? 'Equipo independiente de desarrollo web, integración de IA y automatización. Profesionales con experiencia internacional para clientes de todo el mundo.'
+  : 'Independent web development, AI integration, and automation team. Professionals with international experience serving clients worldwide.';
 
 const pageTitle = Astro.props.title
   ? `${Astro.props.title} | ${siteTitle}`
-  : siteTitle;
+  : `${locale === 'es' ? 'Desarrollo web, IA y automatización' : 'Web Development, AI & Automation'} | ${siteTitle}`;
 const metaDesc = Astro.props.description || defaultDesc;
+const isNotFound = Astro.props.title === '404';
+const canonical = new URL(locale === 'en' ? '/en/' : '/', Astro.site).href;
+const organization = {'@context':'https://schema.org','@type':'Organization',name:'INGOMEZ',url:Astro.site?.href,description:metaDesc,knowsAbout:['Custom software','Web development','Artificial intelligence','Process automation']};
 ---
 
 <!doctype html>
@@ -28,7 +31,20 @@ const metaDesc = Astro.props.description || defaultDesc;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={metaDesc} />
-    <meta name="theme-color" content="#0a0b10" />
+    {isNotFound ? <meta name="robots" content="noindex, follow" /> : <>
+      <link rel="canonical" href={canonical} />
+      <link rel="alternate" hreflang="es" href="https://www.ingomez.com/" />
+      <link rel="alternate" hreflang="en" href="https://www.ingomez.com/en/" />
+      <link rel="alternate" hreflang="x-default" href="https://www.ingomez.com/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="INGOMEZ" />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={metaDesc} />
+      <meta property="og:url" content={canonical} />
+      <meta name="twitter:card" content="summary" />
+      <script type="application/ld+json" set:html={JSON.stringify(organization)} />
+    </>}
+    <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -54,6 +70,5 @@ const metaDesc = Astro.props.description || defaultDesc;
       </main>
       <Footer locale={locale} />
     </div>
-    <script defer src="/scripts/main.js"></script>
   </body>
 </html>

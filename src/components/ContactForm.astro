@@ -9,7 +9,6 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
 <form
   id="contact-form"
   class="grid gap-5"
-  onsubmit="return false"
 >
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
     <label class="flex flex-col gap-1.5">
@@ -39,7 +38,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
   </div>
   <label class="flex flex-col gap-1.5">
     <span class="text-xs font-bold uppercase tracking-widest text-brand-orange-light">
-      {t('form.company', locale)} <span class="text-brand-bg/50">(opcional)</span>
+      {t('form.company', locale)} <span class="text-brand-bg/50">{locale === 'es' ? '(opcional)' : '(optional)'}</span>
     </span>
     <input
       type="text"
@@ -70,7 +69,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
   </noscript>
 
   <button
-    type="button"
+    type="submit"
     class="btn-primary font-bold text-sm w-full sm:w-auto"
     id="submit-btn"
   >
@@ -83,7 +82,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
       : 'Protected by reCAPTCHA. Your data is handled securely.'}
   </p>
 
-  <div id="form-feedback" class="hidden mt-4 p-4 rounded-lg text-sm font-medium"></div>
+  <div id="form-feedback" role="status" aria-live="polite" class="hidden mt-4 p-4 rounded-lg text-sm font-medium"></div>
 </form>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -92,22 +91,22 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
 
 <style>
   .swal2-popup {
-    background: #0a0b10 !important;
-    border: 1px solid rgba(0, 229, 255, 0.25) !important;
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.1) !important;
+    background: #20223b !important;
+    border: 1px solid rgba(189, 180, 255, 0.25) !important;
+    box-shadow: 0 0 30px rgba(189, 180, 255, 0.1) !important;
     border-radius: 12px !important;
   }
   .swal2-toast {
-    background: #0a0b10 !important;
-    border: 1px solid rgba(0, 229, 255, 0.25) !important;
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.15) !important;
+    background: #20223b !important;
+    border: 1px solid rgba(189, 180, 255, 0.25) !important;
+    box-shadow: 0 0 20px rgba(189, 180, 255, 0.15) !important;
   }
   .swal2-title {
     color: #f0f4f8 !important;
     font-family: 'Inter', sans-serif !important;
     font-weight: 700 !important;
     font-size: 1.25rem !important;
-    text-transform: uppercase !important;
+    text-transform: none !important;
     letter-spacing: 0.05em !important;
   }
   .swal2-toast .swal2-title {
@@ -118,7 +117,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
     opacity: 0.7 !important;
   }
   .swal2-confirm {
-    background-color: #00e5ff !important;
+    background-color: #bdb4ff !important;
     color: #f0f4f8 !important;
     font-weight: 700 !important;
     border-radius: 9999px !important;
@@ -126,21 +125,21 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
     font-size: 0.875rem !important;
   }
   .swal2-icon.swal2-success {
-    border-color: #00e5ff !important;
-    color: #00e5ff !important;
+    border-color: #bdb4ff !important;
+    color: #bdb4ff !important;
   }
   .swal2-icon.swal2-success [class^='swal2-success-line'] {
-    background-color: #00e5ff !important;
+    background-color: #bdb4ff !important;
   }
   .swal2-icon.swal2-success .swal2-success-ring {
-    border-color: rgba(0, 229, 255, 0.3) !important;
+    border-color: rgba(189, 180, 255, 0.3) !important;
   }
   .swal2-icon.swal2-error {
-    border-color: #00e5ff !important;
-    color: #00e5ff !important;
+    border-color: #bdb4ff !important;
+    color: #bdb4ff !important;
   }
   .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
-    background-color: #00e5ff !important;
+    background-color: #bdb4ff !important;
   }
 
   #form-feedback.success {
@@ -197,6 +196,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
 
     async function submitForm() {
       if (submitting) return;
+      if (!form.reportValidity()) return;
 
       var recaptchaResponse = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : '';
       if (!recaptchaResponse) {
@@ -234,7 +234,7 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
 
         var result = await res.json();
 
-        if (result.success === 'true' || result.success === true || res.ok) {
+        if (res.ok && (result.success === 'true' || result.success === true)) {
           showFeedback(
             'success',
             isEs ? 'Mensaje enviado' : 'Message sent',
@@ -260,7 +260,6 @@ const formsubmitHash = import.meta.env.PUBLIC_FORMSUBMIT_HASH || 'YOUR_FORMSUBMI
       }
     }
 
-    submitBtn.addEventListener('click', submitForm);
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       submitForm();

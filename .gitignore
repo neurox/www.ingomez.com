@@ -6,6 +6,7 @@ dist/
 
 # dependencies
 node_modules/
+.pnpm-store/
 
 # logs
 npm-debug.log*
@@ -17,6 +18,8 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.env.*
+!.env.example
 
 # macOS-specific files
 .DS_Store
@@ -26,3 +29,4 @@ pnpm-debug.log*
 
 # AI Agent
 .playwright-mcp
+REVERSIBILITY.md

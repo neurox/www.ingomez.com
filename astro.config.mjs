@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@tailwindcss/vite';
 
 export default defineConfig({
+  site: 'https://www.ingomez.com',
   output: 'static',
   outDir: './docs',
   vite: {

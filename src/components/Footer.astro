@@ -41,12 +41,11 @@ const homeUrl = locale === 'es' ? '/' : '/en/';
         <div class="flex flex-col gap-2">
           <a href="mailto:juanjose@ingomez.com" class="text-sm text-brand-brown hover:text-brand-orange transition-colors">juanjose@ingomez.com</a>
           <span class="text-sm text-brand-brown">Cuernavaca, Morelos</span>
-          <a href="https://www.juaning.dev" target="_blank" rel="noreferrer" class="text-sm text-brand-brown hover:text-brand-orange transition-colors">juaning.dev</a>
         </div>
       </div>
     </div>
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-8 pt-6 border-t border-brand-dark text-xs text-brand-brown">
-      <div set:html={t('footer.copyright', locale)} />
+      <div><div set:html={t('footer.copyright', locale)} /><a class="block mt-2 underline underline-offset-4" href="/credits/head-scan.txt">{locale === 'es' ? 'Escaneo 3D: Lee Perry-Smith · CC BY 3.0 · Adaptado por INGOMEZ' : '3D scan: Lee Perry-Smith · CC BY 3.0 · Adapted by INGOMEZ'}</a></div>
       <div>
         <a href="#" class="hover:text-brand-orange transition-colors">{locale === 'es' ? 'Ir arriba' : 'Go to top'}</a>
       </div>
