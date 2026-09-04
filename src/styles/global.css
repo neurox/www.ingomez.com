@@ -49,7 +49,7 @@ header nav>div:last-child>div a {border-radius:4px}
 .text-link:hover {color:#315ede}
 #differentiators {padding-block:48px 64px}
 #differentiators>div:first-child {margin-bottom:32px}
-#differentiators .card-outline {background:white;padding:0 24px 0 0;border:0;border-radius:0}
+#differentiators .card-outline {background:white;border:0;border-radius:0}
 #differentiators .card-outline+.card-outline {border-left:1px solid #dce0e6;padding-left:24px}
 #differentiators .card-outline>div {align-items:center;justify-content:flex-start;gap:18px}
 #differentiators .font-display.text-5xl {font-size:14px;font-family:var(--font-sans)}
